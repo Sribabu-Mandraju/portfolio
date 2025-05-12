@@ -6,7 +6,7 @@ import "./index.css";
 import Web3_SecurityPage from "./pages/writeups/web3_security/Web3_SecurityPage";
 import Explantion from "./pages/writeups/web3_security/Explantion";
 import DashboardLayout from "./components/DashboardLayout";
-import NotFound from "./components/NotFound";
+import Navbar from "./components/Navbar";
 const App = () => {
   return (
     <ThemeProvider>
@@ -16,8 +16,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/writeups/web3-security" element={<Web3_SecurityPage />} />
+            <Route path="/navbar" element={<Navbar />} />
             <Route path="/writeups/web3-security/:id" element={<Explantion />} />
-            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
         </DashboardLayout>
