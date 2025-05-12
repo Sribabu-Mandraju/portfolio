@@ -211,12 +211,7 @@ const LiveTerminal = () => {
 const Home = () => {
   // Sample data - replace with actual data
   const stats = [
-    {
-      icon: FaBook,
-      label: "Total Blogs",
-      value: "42",
-      change: "+8 this month",
-    },
+   
     { icon: FaPen, label: "Writeups", value: "156", change: "+12 this week" },
     {
       icon: FaFlag,
@@ -263,7 +258,7 @@ const Home = () => {
             <div className="flex flex-col md:flex-row md:items-center md:justify-between">
               <div>
                 <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
-                  Hacker Dashboard
+                  d4r3_w0lf
                 </h1>
                 <p className="text-gray-600 dark:text-gray-300 mt-1 sm:mt-2 text-sm sm:text-base md:text-lg">
                   Senior Security Researcher & Blockchain Developer
@@ -451,7 +446,7 @@ const Home = () => {
       {/* Certifications & Achievements Section */}
       <div className="mb-6 sm:mb-8">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-          Certifications & Achievements
+          Achievements
         </h2>
         <div className="flex flex-wrap gap-3 sm:gap-4">
           {[
@@ -477,31 +472,8 @@ const Home = () => {
       </div>
 
       {/* Fun Facts / Hobbies Section */}
-      <div className="mb-6 sm:mb-8">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-          Fun Facts
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-          {[
-            "Can solve a Rubik's cube in under 60 seconds",
-            "Writes bash scripts for everything",
-            "Has a home lab with 10+ VMs",
-            "Loves CTFs and late-night hacking",
-          ].map((fact, idx) => (
-            <div
-              key={idx}
-              className="bg-gray-100 dark:bg-gray-900 border border-green-200 dark:border-green-700 rounded-lg p-3 sm:p-4 font-mono text-green-700 dark:text-green-300 shadow-md relative overflow-hidden"
-            >
-              <span className="before:content-['>_'] before:text-green-500 dark:before:text-green-400 before:mr-2" />
-              {fact}
-              <div className="absolute bottom-0 right-0 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 dark:bg-green-400 rounded-full animate-pulse"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-
+  
       {/* Live Terminal Section */}
-      <LiveTerminal />
     </div>
   );
 };

@@ -31,13 +31,13 @@ const DashboardLayout = ({ children }) => {
             <div className="flex flex-col gap-2 sm:gap-3">
               {/* Page Header */}
               <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-xs sm:text-sm">
-                <div className="flex items-center gap-1 sm:gap-2 text-cyan-400 whitespace-nowrap">
-                  <span className="text-cyan-400">root@system</span>
+                <div className="flex items-center font-bold text-cyan-400 whitespace-nowrap">
+                  <span className="text-green-500 font-bold">root@d4r3_w0lf</span>
                   <span className="text-gray-400">:</span>
                   <span className="text-green-400">~</span>
                   <span className="text-gray-400">$</span>
                 </div>
-                <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
+                <div className="flex items-center font-bold  gap-1 sm:gap-2 flex-wrap">
                   {getBreadcrumbItems().map((item, index) => (
                     <React.Fragment key={item.path}>
                       <span className="text-cyan-400 hover:text-cyan-300 transition-colors duration-200">

@@ -8,32 +8,55 @@ const MenuItem = ({ item, isActive, isOpen, onToggle }) => {
   const location = useLocation();
   const Icon = item.icon;
 
+  const MenuContent = () => (
+    <div className="flex items-center justify-between w-full">
+      <div className="flex items-center">
+        <Icon className="w-5 h-5" />
+        <span className="ml-3 font-medium">{item.title}</span>
+      </div>
+      {hasSubItems && (
+        <FaChevronDown
+          className={`w-4 h-4 transition-transform duration-200 ${
+            isOpen ? "transform rotate-180" : ""
+          }`}
+        />
+      )}
+    </div>
+  );
+
   return (
     <div className="mb-2">
-      <button
-        onClick={onToggle}
-        className={`
-          w-full flex items-center justify-between px-4 py-3 rounded-lg
-          transition-colors duration-150 ease-in-out
-          ${
-            isActive
-              ? "bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400"
-              : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-          }
-        `}
-      >
-        <div className="flex items-center">
-          <Icon className="w-5 h-5" />
-          <span className="ml-3 font-medium">{item.title}</span>
-        </div>
-        {hasSubItems && (
-          <FaChevronDown
-            className={`w-4 h-4 transition-transform duration-200 ${
-              isOpen ? "transform rotate-180" : ""
-            }`}
-          />
-        )}
-      </button>
+      {hasSubItems ? (
+        <button
+          onClick={onToggle}
+          className={`
+            w-full flex items-center justify-between px-4 py-3 rounded-lg
+            transition-colors duration-150 ease-in-out
+            ${
+              isActive
+                ? "bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400"
+                : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            }
+          `}
+        >
+          <MenuContent />
+        </button>
+      ) : (
+        <Link
+          to={item.path}
+          className={`
+            w-full flex items-center justify-between px-4 py-3 rounded-lg
+            transition-colors duration-150 ease-in-out
+            ${
+              isActive
+                ? "bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400"
+                : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+            }
+          `}
+        >
+          <MenuContent />
+        </Link>
+      )}
 
       {/* Submenu */}
       {hasSubItems && isOpen && (
@@ -105,11 +128,20 @@ const Sidebar = ({ isOpen, onClose }) => {
         `}
       >
         {/* Logo */}
-        <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200 dark:border-gray-700">
-          <span className="text-xl font-bold text-gray-800 dark:text-white">
-            <span className="text-green-500 dark:text-green-400">Hacker</span>
-            Dash
-          </span>
+        <div className="flex items-center justify-between h-16 px-6 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-green-50 to-white dark:from-gray-800 dark:to-gray-900">
+          <div className="flex items-center space-x-2">
+            <span className="px-3 py-1 rounded-full bg-green-500/10 dark:bg-green-500/20 text-green-600 dark:text-green-400 font-bold text-sm">
+              N
+            </span>
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold text-gray-800 dark:text-white">
+                Nandeesh
+              </span>
+              <span className="text-xs text-gray-500 dark:text-gray-400 font-mono">
+                d4r3_w0lf
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* Menu Items */}

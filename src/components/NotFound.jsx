@@ -66,21 +66,6 @@ const NotFound = () => {
             </div>
           )}
 
-          {/* Glitch Effect */}
-          {showGlitch && (
-            <div className="relative">
-              <div className="glitch-text text-xl sm:text-2xl font-bold text-green-400">
-                SYSTEM COMPROMISED
-              </div>
-              <div className="glitch-text text-xl sm:text-2xl font-bold text-red-400">
-                SYSTEM COMPROMISED
-              </div>
-              <div className="glitch-text text-xl sm:text-2xl font-bold text-blue-400">
-                SYSTEM COMPROMISED
-              </div>
-            </div>
-          )}
-
           {/* Hex Code */}
           {showHex && (
             <div className="text-sm sm:text-base text-green-300/80 animate-fade-in">

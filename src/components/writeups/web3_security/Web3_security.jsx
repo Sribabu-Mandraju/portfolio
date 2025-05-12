@@ -129,7 +129,7 @@ const Web3Security = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+        {/* <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
           <div className="flex items-center gap-4">
             <div className="p-3 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 rounded-lg">
               <FaCircleCheck className="w-6 h-6 text-green-600 dark:text-green-400" />
@@ -143,7 +143,7 @@ const Web3Security = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Search and Filter */}
