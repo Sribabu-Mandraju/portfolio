@@ -16,44 +16,54 @@ const DashboardLayout = ({ children }) => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="flex min-h-screen bg-black">
       {/* Sidebar */}
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col min-h-screen w-full">
+      <div className="flex-1 flex flex-col min-h-screen w-full relative">
         {/* Navbar */}
-        <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
+        <div className="sticky top-0 z-50">
+          <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
+        </div>
 
         {/* Main Content Area */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 dark:bg-gray-900">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-black relative">
           <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-8">
             <div className="flex flex-col gap-2 sm:gap-3">
-              {/* Page Header */}
-              <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-xs sm:text-sm">
-                <div className="flex items-center font-bold text-cyan-400 whitespace-nowrap">
-                  <span className="text-green-500 font-bold">root@d4r3_w0lf</span>
-                  <span className="text-gray-400">:</span>
-                  <span className="text-green-400">~</span>
-                  <span className="text-gray-400">$</span>
-                </div>
-                <div className="flex items-center font-bold  gap-1 sm:gap-2 flex-wrap">
-                  {getBreadcrumbItems().map((item, index) => (
-                    <React.Fragment key={item.path}>
-                      <span className="text-cyan-400 hover:text-cyan-300 transition-colors duration-200">
-                        {item.name}
-                      </span>
-                      {index < getBreadcrumbItems().length - 1 && (
-                        <span className="text-gray-400">/</span>
-                      )}
-                    </React.Fragment>
-                  ))}
+              {/* Page Header - Fixed Position */}
+              <div className="sticky top-[64px] z-40 bg-black/95 backdrop-blur-sm py-2">
+                <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-xs sm:text-sm">
+                  <div className="flex items-center font-mono font-bold text-green-400 whitespace-nowrap">
+                    <span className="text-green-500">root@d4r3_w0lf</span>
+                    <span className="text-green-400">:</span>
+                    <span className="text-green-400">~</span>
+                    <span className="text-green-400">$</span>
+                  </div>
+                  <div className="flex items-center font-mono font-bold gap-1 sm:gap-2 flex-wrap">
+                    {getBreadcrumbItems().map((item, index) => (
+                      <React.Fragment key={item.path}>
+                        <span className="text-green-400 hover:text-green-300 transition-colors duration-200">
+                          {item.name}
+                        </span>
+                        {index < getBreadcrumbItems().length - 1 && (
+                          <span className="text-green-500">/</span>
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </div>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-700 p-3 sm:p-6">
-                {children}
+              <div className="bg-black rounded-lg shadow-lg border border-green-500/20 p-3 sm:p-6 relative overflow-hidden">
+                {/* Background Gradient Effects */}
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-50"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-transparent rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-green-500/10 to-transparent rounded-full blur-3xl"></div>
+
+                {/* Content Container */}
+                <div className="relative z-10">{children}</div>
               </div>
             </div>
           </div>

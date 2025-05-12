@@ -8,6 +8,7 @@ import Explantion from "./pages/writeups/web3_security/Explantion";
 import DashboardLayout from "./components/DashboardLayout";
 import Navbar from "./components/Navbar";
 import NotFound from './components/NotFound'
+import Projects from "./components/projects/Projects";
 const App = () => {
   return (
     <ThemeProvider>
@@ -19,7 +20,9 @@ const App = () => {
             <Route path="/writeups/web3-security" element={<Web3_SecurityPage />} />
             <Route path="/navbar" element={<Navbar />} />
             <Route path="/writeups/web3-security/:id" element={<Explantion />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="*" element={<NotFound />} />
+
           </Routes>
         </div>
         </DashboardLayout>

@@ -10,14 +10,27 @@ import {
   FaGear,
   FaCircleQuestion,
   FaRightFromBracket,
+  FaTerminal,
+  FaLinux,
+  FaCode,
+  FaServer,
 } from "react-icons/fa6";
 
 const Navbar = ({ onMenuClick }) => {
   const { isDarkMode, toggleTheme } = useTheme();
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [currentTime, setCurrentTime] = useState(new Date());
   const notificationsRef = useRef(null);
   const profileRef = useRef(null);
+
+  // Update time every second
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   // Close dropdowns when clicking outside
   useEffect(() => {
@@ -38,107 +51,54 @@ const Navbar = ({ onMenuClick }) => {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-10 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+    <nav className="sticky top-0 z-10 bg-gray-900 dark:bg-black border-b border-green-500/20">
       <div className="px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Left side */}
           <div className="flex items-center gap-4">
             <button
               onClick={onMenuClick}
-              className="lg:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="lg:hidden p-2 rounded-lg text-green-400 hover:bg-green-900/20 hover:text-green-300 border border-transparent hover:border-green-500/30 transition-all duration-300"
               aria-label="Menu"
             >
-              <FaBars className="w-6 h-6" />
+              <FaBars className="w-5 h-5" />
             </button>
 
             {/* Search bar */}
-            <div className="hidden md:block relative">
+            <div className="hidden md:block relative group">
               <input
                 type="text"
-                placeholder="Search..."
-                className="w-64 px-4 py-2 rounded-lg 
-                  bg-gray-100 dark:bg-gray-700 
-                  text-gray-900 dark:text-gray-100 
-                  placeholder-gray-500 dark:placeholder-gray-400
-                  border border-gray-200 dark:border-gray-600
-                  focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400"
+                placeholder="> Search..."
+                className="w-72 px-4 py-2 pl-10 rounded-lg 
+                  bg-gray-800 dark:bg-black
+                  text-green-400 dark:text-green-400 
+                  placeholder-green-500/50
+                  border border-green-500/30
+                  focus:outline-none focus:ring-2 focus:ring-green-500/50
+                  transition-all duration-300"
               />
-              <div className="absolute right-3 top-2.5 text-gray-400 dark:text-gray-500">
-                <FaMagnifyingGlass className="w-5 h-5" />
+              <div className="absolute left-3 top-2.5 text-green-500/50 group-hover:text-green-400 transition-colors duration-300">
+                <FaMagnifyingGlass className="w-4 h-4" />
               </div>
             </div>
           </div>
 
           {/* Right side */}
-          <div className="flex items-center gap-2">
-            {/* Notifications */}
-
+          <div className="flex items-center gap-3">
+            {/* System Status */}
+            <div className="hidden md:flex items-center gap-3 px-3 py-1.5 rounded-lg bg-green-900/20 border border-green-500/30">
+              <div className="flex items-center gap-2 text-green-400 text-sm font-mono">
+                <FaLinux className="w-4 h-4" />
+                <span>System</span>
+              </div>
+              <div className="h-4 w-px bg-green-500/30"></div>
+              <div className="text-green-500/70 text-sm font-mono">
+                {currentTime.toLocaleTimeString()}
+              </div>
+            </div>
 
             {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-              aria-label="Toggle theme"
-            >
-              {isDarkMode ? (
-                <FaSun className="w-6 h-6" />
-              ) : (
-                <FaMoon className="w-6 h-6" />
-              )}
-            </button>
-
-            {/* Profile */}
-            <div className="relative ml-2" ref={profileRef}>
-              <button
-                onClick={() => setIsProfileOpen(!isProfileOpen)}
-                className="flex items-center gap-2 p-1.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-              >
-                <img
-                  className="w-8 h-8 rounded-full border-2 border-gray-200 dark:border-gray-600"
-                  src="https://avatars.dicebear.com/api/initials/HD.svg"
-                  alt="Profile"
-                />
-                <span className="hidden md:block font-medium">Admin</span>
-              </button>
-
-              {/* Profile Dropdown */}
-              {isProfileOpen && (
-                <div className="absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-                  <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-                    <p className="text-sm font-medium text-gray-900 dark:text-white">
-                      Admin User
-                    </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                      admin@example.com
-                    </p>
-                  </div>
-                  <div className="py-2">
-                    {[
-                      { label: "Your Profile", icon: FaUser },
-                      { label: "Settings", icon: FaGear },
-                      { label: "Help", icon: FaCircleQuestion },
-                    ].map((item) => {
-                      const Icon = item.icon;
-                      return (
-                        <button
-                          key={item.label}
-                          className="w-full px-4 py-2 text-sm text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2"
-                        >
-                          <Icon className="w-4 h-4" />
-                          {item.label}
-                        </button>
-                      );
-                    })}
-                  </div>
-                  <div className="p-2 border-t border-gray-200 dark:border-gray-700">
-                    <button className="w-full px-4 py-2 text-sm text-left text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2">
-                      <FaRightFromBracket className="w-4 h-4" />
-                      Sign out
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
+          
           </div>
         </div>
       </div>

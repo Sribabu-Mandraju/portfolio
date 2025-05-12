@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { FaTerminal, FaArrowLeft, FaHome, FaSearch } from "react-icons/fa";
+import {
+  FaTerminal,
+  FaArrowLeft,
+  FaHome,
+  FaSearch,
+  FaBug,
+  FaShieldAlt,
+  FaLock,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const NotFound = () => {
@@ -7,10 +15,14 @@ const NotFound = () => {
   const [showMatrix, setShowMatrix] = useState(false);
   const [showGlitch, setShowGlitch] = useState(false);
   const [showHex, setShowHex] = useState(false);
+  const [showSecurity, setShowSecurity] = useState(false);
+  const [showAccess, setShowAccess] = useState(false);
 
   const fullText = "ERROR 404: Page Not Found";
   const matrixText = "01001000 01000001 01000011 01001011 01000101 01000100";
   const hexText = "0x404 0x4E4F54 0x464F55 0x4E44";
+  const securityText = "SECURITY PROTOCOL: ACCESS DENIED";
+  const accessText = "INITIALIZING SECURITY OVERRIDE...";
 
   useEffect(() => {
     let i = 0;
@@ -23,28 +35,35 @@ const NotFound = () => {
         setShowMatrix(true);
         setTimeout(() => setShowGlitch(true), 1000);
         setTimeout(() => setShowHex(true), 2000);
+        setTimeout(() => setShowSecurity(true), 3000);
+        setTimeout(() => setShowAccess(true), 4000);
       }
     };
     typeWriter();
   }, []);
 
   return (
-    <div className="  bg-gray-900 text-green-400 font-mono flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-black text-green-400 font-mono flex items-center justify-center p-4 relative overflow-hidden">
       {/* Matrix Rain Effect Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="matrix-rain"></div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl w-full my-[50px] bg-gray-800/50 backdrop-blur-lg rounded-xl border border-green-700 p-6 sm:p-8 relative">
+      <div className="max-w-4xl w-full my-[50px] bg-black/80 backdrop-blur-lg rounded-xl border border-green-500/20 p-6 sm:p-8 relative">
         {/* Terminal Header */}
-        <div className="flex items-center gap-2 mb-6">
+        <div className="flex items-center justify-between mb-6">
           <div className="flex gap-2">
             <span className="w-3 h-3 rounded-full bg-red-500"></span>
             <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
             <span className="w-3 h-3 rounded-full bg-green-500"></span>
           </div>
-          <span className="text-sm text-gray-400">root@system:~</span>
+          <div className="flex items-center gap-2 text-sm">
+            <span className="text-green-500">root@system</span>
+            <span className="text-green-400">:</span>
+            <span className="text-green-400">~</span>
+            <span className="text-green-400">$</span>
+          </div>
         </div>
 
         {/* Error Message */}
@@ -76,6 +95,26 @@ const NotFound = () => {
             </div>
           )}
 
+          {/* Security Protocol */}
+          {showSecurity && (
+            <div className="text-sm sm:text-base text-green-300/80 animate-fade-in">
+              <div className="flex items-center gap-2">
+                <FaShieldAlt className="text-green-500" />
+                <span className="font-mono">{securityText}</span>
+              </div>
+            </div>
+          )}
+
+          {/* Access Override */}
+          {showAccess && (
+            <div className="text-sm sm:text-base text-green-300/80 animate-fade-in">
+              <div className="flex items-center gap-2">
+                <FaLock className="text-green-500" />
+                <span className="font-mono">{accessText}</span>
+              </div>
+            </div>
+          )}
+
           {/* Error Details */}
           <div className="mt-8 space-y-4">
             <p className="text-green-300/80">
@@ -85,14 +124,14 @@ const NotFound = () => {
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <Link
                 to="/"
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-all duration-300 transform hover:scale-105"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-green-500/20 hover:bg-green-500/30 text-green-400 rounded-lg transition-all duration-300 transform hover:scale-105 border border-green-500/20 hover:border-green-500/40"
               >
                 <FaHome />
                 <span>Return Home</span>
               </Link>
               <button
                 onClick={() => window.history.back()}
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-600 text-green-300 rounded-lg transition-all duration-300 transform hover:scale-105"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-green-500/20 hover:bg-green-500/30 text-green-400 rounded-lg transition-all duration-300 transform hover:scale-105 border border-green-500/20 hover:border-green-500/40"
               >
                 <FaArrowLeft />
                 <span>Go Back</span>
@@ -101,7 +140,7 @@ const NotFound = () => {
           </div>
 
           {/* Easter Egg - Hidden Command */}
-          <div className="mt-8 text-xs text-gray-500">
+          <div className="mt-8 text-xs text-green-500/50">
             <p>Try typing 'help' in the console...</p>
           </div>
         </div>
@@ -109,6 +148,7 @@ const NotFound = () => {
         {/* Decorative Elements */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-green-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-500/5 rounded-full blur-3xl"></div>
       </div>
 
       {/* Custom CSS for animations */}

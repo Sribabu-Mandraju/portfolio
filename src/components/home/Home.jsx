@@ -209,9 +209,20 @@ const LiveTerminal = () => {
 };
 
 const Home = () => {
+  const [activeSection, setActiveSection] = useState("about");
+  const [isHovered, setIsHovered] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // Handle mouse movement for interactive background
+  const handleMouseMove = (e) => {
+    setMousePosition({
+      x: e.clientX,
+      y: e.clientY,
+    });
+  };
+
   // Sample data - replace with actual data
   const stats = [
-   
     { icon: FaPen, label: "Writeups", value: "156", change: "+12 this week" },
     {
       icon: FaFlag,
@@ -236,244 +247,268 @@ const Home = () => {
   ];
 
   return (
-    <div className="p-2 sm:p-4 mx-auto max-w-7xl">
-      {/* User Profile Section */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 backdrop-blur-lg bg-opacity-90 dark:bg-opacity-90 border border-gray-200 dark:border-gray-700 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-green-500/10 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-tr from-green-500/10 to-transparent rounded-full blur-3xl"></div>
+    <div
+      className="min-h-screen bg-black relative overflow-hidden"
+      onMouseMove={handleMouseMove}
+    >
+      {/* Interactive Background */}
+      <div
+        className="fixed inset-0 pointer-events-none"
+        style={{
+          background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.1) 0%, transparent 50%)`,
+        }}
+      />
 
-        <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-8 relative">
-          <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-green-700 dark:from-green-400 dark:to-green-600 rounded-full blur opacity-50 group-hover:opacity-75 transition duration-500"></div>
-            <img
-              src="https://avatars.dicebear.com/api/initials/HD.svg"
-              alt="Profile"
-              className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full border-4 border-white dark:border-gray-800 shadow-xl transform transition duration-500 hover:scale-105"
-            />
-            <div className="absolute bottom-0 right-0 bg-gradient-to-r from-green-500 to-green-600 dark:from-green-400 dark:to-green-500 w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center border-4 border-white dark:border-gray-800 shadow-lg">
-              <span className="text-white text-xs sm:text-sm">✓</span>
-            </div>
-          </div>
-          <div className="text-center md:text-left flex-1">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-              <div>
-                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
-                  d4r3_w0lf
-                </h1>
-                <p className="text-gray-600 dark:text-gray-300 mt-1 sm:mt-2 text-sm sm:text-base md:text-lg">
-                  Senior Security Researcher & Blockchain Developer
-                </p>
+      {/* Main Content */}
+      <div className="relative z-10 p-4 sm:p-6 md:p-8 mx-auto max-w-7xl">
+        {/* Navigation Tabs */}
+        {/* <div className="flex flex-wrap gap-2 mb-8">
+          {["about", "skills", "journey", "tools", "achievements"].map(
+            (section) => (
+              <button
+                key={section}
+                onClick={() => setActiveSection(section)}
+                className={`px-4 py-2 rounded-lg font-mono text-sm transition-all duration-300 ${
+                  activeSection === section
+                    ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                    : "text-green-500/70 hover:text-green-400 hover:bg-green-500/10"
+                }`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </button>
+            )
+          )}
+        </div> */}
+
+        {/* User Profile Section with 3D Effect */}
+        <div
+          className="bg-black rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-8 backdrop-blur-lg border border-green-500/20 relative overflow-hidden transform transition-all duration-500 hover:scale-[1.02]"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          style={{
+            transform: isHovered
+              ? `perspective(1000px) rotateX(${
+                  (mousePosition.y - window.innerHeight / 2) * 0.01
+                }deg) rotateY(${
+                  (mousePosition.x - window.innerWidth / 2) * 0.01
+                }deg)`
+              : "none",
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-50"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-green-500/10 to-transparent rounded-full blur-3xl"></div>
+
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 relative">
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-green-700 rounded-full blur opacity-50 group-hover:opacity-75 transition duration-500"></div>
+              <img
+                src="https://avatars.dicebear.com/api/initials/HD.svg"
+                alt="Profile"
+                className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-4 border-black shadow-xl transform transition duration-500 hover:scale-105"
+              />
+              <div className="absolute bottom-0 right-0 bg-gradient-to-r from-green-500 to-green-600 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border-4 border-black shadow-lg">
+                <span className="text-white text-sm">✓</span>
               </div>
-              <div className="flex gap-3 sm:gap-4 mt-3 sm:mt-4 md:mt-0 justify-center">
-                {socialLinks.map((social, index) => (
-                  <a
+            </div>
+
+            <div className="text-center md:text-left flex-1">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div>
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-400 font-mono tracking-tight">
+                    d4r3_w0lf
+                  </h1>
+                  <p className="text-green-500/70 mt-2 text-sm sm:text-base md:text-lg font-mono">
+                    Senior Security Researcher & Blockchain Developer
+                  </p>
+                </div>
+                <div className="flex gap-4 mt-4 md:mt-0 justify-center">
+                  {socialLinks.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.href}
+                      className="p-2 text-green-400 hover:text-green-300 transition-all duration-300 transform hover:scale-110 hover:rotate-12"
+                      aria-label={social.label}
+                    >
+                      <social.icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-2 justify-center md:justify-start">
+                {[
+                  "Web3 Security",
+                  "Smart Contracts",
+                  "Pentesting",
+                  "Bug Bounty",
+                ].map((tag, index) => (
+                  <span
                     key={index}
-                    href={social.href}
-                    className="p-1.5 sm:p-2 text-gray-600 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400 transition-colors duration-300 transform hover:scale-110"
-                    aria-label={social.label}
+                    className="px-3 py-1.5 text-sm font-medium rounded-lg bg-green-900/30 text-green-400 border border-green-500/30 hover:bg-green-500/20 transition-all duration-300 transform hover:scale-105"
                   >
-                    <social.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
-                  </a>
+                    {tag}
+                  </span>
                 ))}
               </div>
             </div>
-            <div className="mt-4 sm:mt-6 flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 justify-center md:justify-start">
-              {[
-                "Web3 Security",
-                "Smart Contracts",
-                "Pentesting",
-                "Bug Bounty",
-              ].map((tag, index) => (
-                <span
-                  key={index}
-                  className="px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-xs sm:text-sm font-medium rounded-lg bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800/50 hover:shadow-md transition duration-300"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
-      </div>
 
-      {/* About Me Section (Terminal Style) */}
-      <div className="mt-6 sm:mt-8 mb-6 sm:mb-8 bg-gray-100 dark:bg-gray-900 border border-green-200 dark:border-green-700 rounded-lg sm:rounded-xl shadow-lg p-4 sm:p-6 md:p-8 font-mono text-green-700 dark:text-green-400 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 via-green-600 to-green-400 animate-pulse"></div>
-        <div className="flex items-center mb-3 sm:mb-4">
-          <span className="bg-green-600 w-2 h-2 sm:w-3 sm:h-3 rounded-full mr-2 animate-pulse"></span>
-          <span className="text-base sm:text-lg font-bold tracking-widest text-green-800 dark:text-green-300">
-            about_me@root:~$
-          </span>
-        </div>
-        <div className="text-sm sm:text-base md:text-lg leading-relaxed break-words text-green-700 dark:text-green-300">
-          <TypingEffect
-            text={
-              "Hi, I'm Hacker Dev — a passionate security researcher, blockchain developer, and CTF enthusiast. I love breaking things, building secure systems, and sharing knowledge with the community."
-            }
-            speed={18}
-          />
-        </div>
-      </div>
-
-      {/* Stats Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
-        {stats.map((stat, index) => (
-          <div
-            key={index}
-            className="bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl shadow-lg p-3 sm:p-4 md:p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 dark:border-gray-700 backdrop-blur-lg bg-opacity-90 dark:bg-opacity-90 relative overflow-hidden group"
-          >
-            <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-green-500/10 to-transparent rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-            <div className="flex items-center gap-3 sm:gap-4 relative">
-              <div className="p-2 sm:p-3 bg-green-50 dark:bg-green-900/30 rounded-lg border border-green-200 dark:border-green-800/50 transform group-hover:scale-110 transition-transform duration-300">
-                <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-green-600 dark:text-green-400" />
-              </div>
-              <div>
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
-                  {stat.value}
-                </h3>
-                <p className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400">
-                  {stat.label}
-                </p>
-                <p className="text-xs font-medium text-green-600 dark:text-green-400 mt-0.5 sm:mt-1 flex items-center">
-                  {stat.change}
-                </p>
+        {/* Stats Grid with Hover Effects */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className="bg-black rounded-xl shadow-lg p-6 border border-green-500/20 relative overflow-hidden group hover:border-green-500/40 transition-all duration-300"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="flex items-center gap-4 relative">
+                <div className="p-3 bg-green-900/30 rounded-lg border border-green-500/30 transform group-hover:scale-110 transition-transform duration-300">
+                  <stat.icon className="w-6 h-6 text-green-400" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-green-400 font-mono">
+                    {stat.value}
+                  </h3>
+                  <p className="text-sm text-green-500/70 font-mono">
+                    {stat.label}
+                  </p>
+                  <p className="text-xs text-green-400 mt-1 font-mono">
+                    {stat.change}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Skills Progress Section */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 backdrop-blur-lg bg-opacity-90 dark:bg-opacity-90 border border-gray-200 dark:border-gray-700 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-green-500/10 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-tr from-green-500/10 to-transparent rounded-full blur-3xl"></div>
-
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 md:mb-8 relative">
-          Skills & Expertise
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-          {skills.map((skill, index) => (
-            <div key={index} className="space-y-2 sm:space-y-3 group">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="p-1.5 sm:p-2 bg-green-50 dark:bg-green-900/30 rounded-lg border border-green-200 dark:border-green-800/50 transform group-hover:scale-110 transition-transform duration-300">
-                    <skill.icon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-green-600 dark:text-green-400" />
+        {/* Skills Section with Animated Progress Bars */}
+        <div className="bg-black rounded-xl shadow-lg p-6 md:p-8 border border-green-500/20 relative overflow-hidden mb-8">
+          <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-50"></div>
+          <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono mb-6">
+            Skills & Expertise
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {skills.map((skill, index) => (
+              <div key={index} className="group">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-green-900/30 rounded-lg border border-green-500/30 transform group-hover:scale-110 transition-transform duration-300">
+                      <skill.icon className="w-4 h-4 text-green-400" />
+                    </div>
+                    <span className="text-green-400 font-mono">
+                      {skill.name}
+                    </span>
                   </div>
-                  <span className="text-xs sm:text-sm md:text-base font-medium text-gray-900 dark:text-white">
-                    {skill.name}
+                  <span className="text-green-400 font-mono">
+                    {skill.progress}%
                   </span>
                 </div>
-                <span className="text-xs sm:text-sm font-semibold text-green-600 dark:text-green-400">
-                  {skill.progress}%
-                </span>
-              </div>
-              <div className="relative h-2 sm:h-3 bg-gray-100 dark:bg-gray-700 rounded-full">
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(34,197,94,0.1)_50%,transparent_100%)] animate-[shimmer_2s_infinite]"></div>
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(34,197,94,0.05)_100%)]"></div>
-
-                <div
-                  className="h-full bg-gradient-to-r from-green-500 to-green-600 dark:from-green-400 dark:to-green-500 rounded-full transition-all duration-1000 ease-out relative"
-                  style={{ width: `${skill.progress}%` }}
-                >
-                  <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.2)_50%,transparent_100%)] animate-[shimmer_1.5s_infinite]"></div>
-
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-4 h-4 sm:w-5 sm:h-5 bg-white dark:bg-gray-800 rounded-full border-2 border-green-500 dark:border-green-400 shadow-lg flex items-center justify-center transform transition-all duration-500 group-hover:scale-110">
-                    <skill.icon className="w-2 h-2 sm:w-3 sm:h-3 text-green-600 dark:text-green-400 animate-pulse" />
+                <div className="relative h-2 bg-green-900/30 rounded-full overflow-hidden">
+                  <div
+                    className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 rounded-full transition-all duration-1000 ease-out"
+                    style={{ width: `${skill.progress}%` }}
+                  >
+                    <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.2)_50%,transparent_100%)] animate-[shimmer_1.5s_infinite]"></div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Timeline / Journey Section */}
-      <div className="mb-6 sm:mb-8">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-          My Journey
-        </h2>
-        <div className="relative border-l-4 border-green-200 dark:border-green-700 pl-6 sm:pl-8">
-          {[
-            { year: "2024", event: "Senior Security Researcher @ CyberSecX" },
-            { year: "2022", event: "Blockchain Developer @ Web3Labs" },
-            { year: "2021", event: "Top 10 CTF Player" },
-            { year: "2019", event: "Started Bug Bounty Hunting" },
-            { year: "2017", event: "Graduated in Computer Science" },
-          ].map((item, idx) => (
-            <div key={idx} className="mb-6 sm:mb-8 last:mb-0 relative">
-              <div className="absolute -left-4 sm:-left-5 top-1 w-3 h-3 sm:w-4 sm:h-4 bg-green-500 border-2 border-green-300 rounded-full shadow-lg animate-pulse"></div>
-              <div className="text-green-600 dark:text-green-300 font-bold text-xs sm:text-sm mb-0.5 sm:mb-1">
-                {item.year}
+        {/* Journey Timeline with Interactive Elements */}
+        <div className="mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono mb-6">
+            My Journey
+          </h2>
+          <div className="relative border-l-2 border-green-500/20 pl-6">
+            {[
+              { year: "2024", event: "Senior Security Researcher @ CyberSecX" },
+              { year: "2022", event: "Blockchain Developer @ Web3Labs" },
+              { year: "2021", event: "Top 10 CTF Player" },
+              { year: "2019", event: "Started Bug Bounty Hunting" },
+              { year: "2017", event: "Graduated in Computer Science" },
+            ].map((item, idx) => (
+              <div key={idx} className="mb-8 last:mb-0 relative group">
+                <div className="absolute -left-3 top-1 w-2 h-2 bg-green-500 rounded-full shadow-lg group-hover:scale-150 transition-transform duration-300"></div>
+                <div className="text-green-400 font-mono text-sm mb-1 group-hover:text-green-300 transition-colors duration-300">
+                  {item.year}
+                </div>
+                <div className="text-green-400 font-mono group-hover:text-green-300 transition-colors duration-300">
+                  {item.event}
+                </div>
               </div>
-              <div className="text-gray-900 dark:text-green-100 text-sm sm:text-base font-mono">
-                {item.event}
+            ))}
+          </div>
+        </div>
+
+        {/* Tech Stack with Hover Effects */}
+        <div className="mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono mb-6">
+            Tech Stack & Tools
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {[
+              { name: "Solidity", icon: FaEthereum },
+              { name: "Burp Suite", icon: FaBug },
+              { name: "Nmap", icon: FaShieldHalved },
+              { name: "Bash", icon: FaTerminal },
+              { name: "React", icon: FaCode },
+              { name: "GitHub", icon: FaGithub },
+              { name: "Twitter", icon: FaTwitter },
+              { name: "LinkedIn", icon: FaLinkedin },
+            ].map((tool, idx) => (
+              <div
+                key={idx}
+                className="group relative bg-black border border-green-500/20 rounded-lg p-4 hover:border-green-500/40 transition-all duration-300"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative flex flex-col items-center">
+                  <tool.icon className="w-8 h-8 text-green-400 group-hover:scale-110 group-hover:text-green-300 transition-all duration-300" />
+                  <span className="mt-2 text-green-400 font-mono text-sm group-hover:text-green-300 transition-colors duration-300">
+                    {tool.name}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Achievements with Animated Cards */}
+        <div className="mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono mb-6">
+            Achievements
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                name: "OSCP",
+                desc: "Offensive Security Certified Professional",
+              },
+              { name: "CEH", desc: "Certified Ethical Hacker" },
+              { name: "Top 10 CTF", desc: "International CTF Player" },
+              { name: "Smart Contract Auditor", desc: "Web3 Security" },
+            ].map((cert, idx) => (
+              <div
+                key={idx}
+                className="group relative bg-black border border-green-500/20 rounded-lg p-4 hover:border-green-500/40 transition-all duration-300"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative">
+                  <span className="text-green-400 font-mono text-lg font-bold mb-2 block group-hover:text-green-300 transition-colors duration-300">
+                    {cert.name}
+                  </span>
+                  <span className="text-green-500/70 font-mono text-sm block group-hover:text-green-400 transition-colors duration-300">
+                    {cert.desc}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
-      {/* Tech Stack / Tools Section */}
-      <div className="mb-6 sm:mb-8">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-          Tech Stack & Tools
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
-          {[
-            { name: "Solidity", icon: FaEthereum },
-            { name: "Burp Suite", icon: FaBug },
-            { name: "Nmap", icon: FaShieldHalved },
-            { name: "Bash", icon: FaTerminal },
-            { name: "React", icon: FaCode },
-            { name: "GitHub", icon: FaGithub },
-            { name: "Twitter", icon: FaTwitter },
-            { name: "LinkedIn", icon: FaLinkedin },
-          ].map((tool, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 border border-green-200 dark:border-green-700 rounded-lg p-3 sm:p-4 shadow-md hover:shadow-green-500/30 transition-all duration-300 group relative overflow-hidden"
-            >
-              <tool.icon className="w-6 h-6 sm:w-8 sm:h-8 text-green-600 dark:text-green-400 group-hover:scale-110 group-hover:text-green-500 dark:group-hover:text-green-300 transition-transform duration-300" />
-              <span className="mt-1.5 sm:mt-2 text-green-700 dark:text-green-200 font-mono text-xs sm:text-sm group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-300">
-                {tool.name}
-              </span>
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 via-green-600 to-green-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Certifications & Achievements Section */}
-      <div className="mb-6 sm:mb-8">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-          Achievements
-        </h2>
-        <div className="flex flex-wrap gap-3 sm:gap-4">
-          {[
-            { name: "OSCP", desc: "Offensive Security Certified Professional" },
-            { name: "CEH", desc: "Certified Ethical Hacker" },
-            { name: "Top 10 CTF", desc: "International CTF Player" },
-            { name: "Smart Contract Auditor", desc: "Web3 Security" },
-          ].map((cert, idx) => (
-            <div
-              key={idx}
-              className="bg-gray-100 dark:bg-gray-900 border border-green-200 dark:border-green-700 rounded-lg px-4 sm:px-6 py-3 sm:py-4 shadow-md flex flex-col items-start hover:shadow-green-500/30 transition-all duration-300 relative overflow-hidden"
-            >
-              <span className="text-green-600 dark:text-green-400 font-bold text-base sm:text-lg mb-0.5 sm:mb-1 animate-pulse">
-                {cert.name}
-              </span>
-              <span className="text-green-700 dark:text-green-200 text-xs sm:text-sm font-mono">
-                {cert.desc}
-              </span>
-              <div className="absolute top-0 right-0 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 dark:bg-green-400 rounded-full animate-ping"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Fun Facts / Hobbies Section */}
-  
-      {/* Live Terminal Section */}
     </div>
   );
 };
