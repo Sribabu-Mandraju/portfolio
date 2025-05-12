@@ -12,7 +12,7 @@ const App = () => {
     <ThemeProvider>
       <BrowserRouter>
       <DashboardLayout>
-        <div className=" bg-gray-50 dark:bg-gray-900">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/writeups/web3-security" element={<Web3_SecurityPage />} />

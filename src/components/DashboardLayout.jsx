@@ -16,7 +16,7 @@ const DashboardLayout = ({ children }) => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Sidebar */}
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
@@ -24,6 +24,7 @@ const DashboardLayout = ({ children }) => {
       <div className="flex-1 flex flex-col min-h-screen">
         {/* Navbar */}
         <Navbar onMenuClick={() => setIsSidebarOpen(true)} />
+
         {/* Main Content Area */}
         <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-6 py-8">
