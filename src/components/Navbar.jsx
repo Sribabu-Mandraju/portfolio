@@ -64,6 +64,21 @@ const Navbar = ({ onMenuClick }) => {
               <FaBars className="w-5 h-5" />
             </button>
 
+            {/* Logo - Now visible on mobile */}
+            <div className="flex items-center md:hidden space-x-3">
+              <div className="p-2 rounded-lg bg-green-900/30 border border-green-500/30">
+                <FaLinux className="w-6 h-6 text-green-500" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-mono text-green-400">
+                  sribabu@5R1B4BU
+                </span>
+                <span className="text-xs text-green-500/70 font-mono hidden sm:block">
+                  {currentTime.toLocaleTimeString()}
+                </span>
+              </div>
+            </div>
+
             {/* Search bar */}
             <div className="hidden md:block relative group">
               <input
@@ -98,7 +113,6 @@ const Navbar = ({ onMenuClick }) => {
             </div>
 
             {/* Theme Toggle */}
-          
           </div>
         </div>
       </div>

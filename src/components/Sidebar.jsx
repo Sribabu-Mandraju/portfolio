@@ -13,10 +13,16 @@ import {
   FaFolderOpen,
 } from "react-icons/fa6";
 
-const MenuItem = ({ item, isActive, isOpen, onToggle }) => {
+const MenuItem = ({ item, isActive, isOpen, onToggle, onClose }) => {
   const hasSubItems = item.subItems && item.subItems.length > 0;
   const location = useLocation();
   const Icon = item.icon;
+
+  const handleClick = () => {
+    if (!hasSubItems) {
+      onClose(); // Close sidebar when clicking a menu item
+    }
+  };
 
   const MenuContent = () => (
     <div className="flex items-center justify-between w-full">
@@ -62,6 +68,7 @@ const MenuItem = ({ item, isActive, isOpen, onToggle }) => {
       ) : (
         <Link
           to={item.path}
+          onClick={handleClick}
           className={`
             w-full flex items-center justify-between px-4 py-3 rounded-lg
             transition-all duration-300 ease-in-out
@@ -85,6 +92,7 @@ const MenuItem = ({ item, isActive, isOpen, onToggle }) => {
               <Link
                 key={subItem.path}
                 to={subItem.path}
+                onClick={onClose}
                 className={`
                   flex items-center gap-2 px-4 py-2 rounded-lg text-sm
                   transition-all duration-300 ease-in-out
@@ -97,11 +105,6 @@ const MenuItem = ({ item, isActive, isOpen, onToggle }) => {
               >
                 <SubIcon className="w-4 h-4 text-green-500" />
                 <span className="font-mono">{subItem.title}</span>
-                {/* {isSubItemActive && (
-                  <span className="ml-auto text-xs text-green-500/70">
-                    [active]
-                  </span>
-                )} */}
               </Link>
             );
           })}
@@ -213,6 +216,7 @@ const Sidebar = ({ isOpen, onClose }) => {
                   isActive={isActive}
                   isOpen={openMenus[item.title]}
                   onToggle={() => toggleMenu(item.title)}
+                  onClose={onClose}
                 />
               );
             })}
