@@ -21,6 +21,13 @@ import {
   FaLock,
   FaCode,
   FaNetworkWired,
+  FaBook,
+  FaGlobe,
+  FaCube,
+  FaKey,
+  FaServer,
+  FaMap,
+  FaDatabase,
 } from "react-icons/fa6";
 
 export const menuItems = [
@@ -35,8 +42,6 @@ export const menuItems = [
     path: "/projects",
     subItems: [
       { title: "All Projects", path: "/projects", icon: FaFolderOpen },
-      { title: "Active", path: "/projects/active", icon: FaFolderPlus },
-      { title: "Archived", path: "/projects/archived", icon: FaBoxArchive },
     ],
   },
   {
@@ -49,24 +54,19 @@ export const menuItems = [
     ],
   },
   {
-    title: "Tasks",
-    icon: FaClipboard,
-    path: "/tasks",
+    title: "Blogs",
+    icon: FaBook,
+    path: "/blogs",
     subItems: [
-      { title: "My Tasks", path: "/tasks", icon: FaListCheck },
-      { title: "Assigned", path: "/tasks/assigned", icon: FaUsers },
-      { title: "Completed", path: "/tasks/completed", icon: FaCircleCheck },
-    ],
-  },
-  {
-    title: "Settings",
-    icon: FaGear,
-    path: "/settings",
-    subItems: [
-      { title: "General", path: "/settings", icon: FaGear },
-      { title: "Security", path: "/settings/security", icon: FaShield },
-      { title: "Notifications", path: "/settings/notifications", icon: FaBell },
-      { title: "Billing", path: "/settings/billing", icon: FaCreditCard },
+      { title: "Authentication & Security", path: "/blogs/auth", icon: FaKey },
+      { title: "Backend Development", path: "/blogs/backend", icon: FaServer },
+      { title: "Frontend Libraries", path: "/blogs/frontend", icon: FaCode },
+      {
+        title: "Database Operations",
+        path: "/blogs/database",
+        icon: FaDatabase,
+      },
+      { title: "Web3 Development", path: "/blogs/web3", icon: FaCube },
     ],
   },
 ];

@@ -11,6 +11,24 @@ import {
   FaGithub,
   FaTwitter,
   FaLinkedin,
+  FaDatabase,
+  FaServer,
+  FaNetworkWired,
+  FaLock,
+  FaReact,
+  FaNodeJs,
+  FaDocker,
+  FaAws,
+  FaLinux,
+  FaPython,
+  FaJs,
+  FaHtml5,
+  FaCss3,
+  FaGitAlt,
+  FaNpm,
+  FaWallet,
+  FaChartLine,
+  FaHammer,
 } from "react-icons/fa6";
 
 // Typing effect component for terminal-style typing
@@ -70,16 +88,16 @@ const terminalCommands = {
   },
   contact: {
     output: [
-      "Email: hacker@cybermail.com",
-      "Twitter: @hackerdev",
-      "LinkedIn: /in/hackerdev",
+      "Email: sribabumandraju@gmail.com",
+      "Twitter: @5R1B4BU",
+      "LinkedIn: /in/sribabu-mandraju-590524233/",
     ],
   },
   social: {
     output: [
-      "GitHub: github.com/hackerdev",
-      "Twitter: twitter.com/hackerdev",
-      "LinkedIn: linkedin.com/in/hackerdev",
+      "GitHub: github.com/Sribabu-Mandraju",
+      "Twitter: twitter.com/5R1B4bU",
+      "LinkedIn: linkedin.com/in/sribabu-mandraju-590524233",
     ],
   },
   clear: {
@@ -221,29 +239,68 @@ const Home = () => {
     });
   };
 
-  // Sample data - replace with actual data
+  // Updated stats for full-stack developer
   const stats = [
-    { icon: FaPen, label: "Writeups", value: "156", change: "+12 this week" },
+    { icon: FaCode, label: "Projects", value: "42", change: "+5 this month" },
+    { icon: FaBug, label: "Github Contributions", value: "28", change: "+3 this week" },
     {
-      icon: FaFlag,
-      label: "CTFs Played",
-      value: "73",
-      change: "+3 this month",
+      icon: FaEthereum,
+      label: "Smart Contracts",
+      value: "15",
+      change: "+2 this month",
     },
-    { icon: FaCode, label: "Projects", value: "28", change: "+2 this week" },
+    {
+      icon: FaServer,
+      label: "APIs Deployed",
+      value: "23",
+      change: "+4 this month",
+    },
   ];
 
+  // Updated skills for full-stack development
   const skills = [
-    { name: "Solidity", progress: 70, icon: FaEthereum },
-    { name: "Bug Bounty", progress: 85, icon: FaBug },
-    { name: "Pentesting", progress: 90, icon: FaShieldHalved },
-    { name: "Bash Scripting", progress: 75, icon: FaTerminal },
+    { name: "Solidity", progress: 65, icon: FaEthereum },
+    { name: "JavaScript", progress: 75, icon: FaJs },
+    { name: "TypeScript", progress: 60, icon: FaJs },
+    { name: "React", progress: 96, icon: FaReact },
+    { name: "Node.js", progress: 94, icon: FaNodeJs },
+    { name: "Express.js", progress: 93, icon: FaServer },
+    { name: "Web3.js", progress: 80, icon: FaWallet },
+    { name: "Ethers.js", progress: 91, icon: FaChartLine },
+    { name: "MongoDB", progress: 79, icon: FaDatabase },
+    { name: "MySQL", progress: 88, icon: FaDatabase },
+    { name: "TailwindCSS", progress: 95, icon: FaCss3 },
+    { name: "Linux", progress: 77, icon: FaLinux },
+    { name: "Go", progress: 65, icon: FaCode },
+    { name: "Python", progress: 66, icon: FaPython },
   ];
+
+  // Tech stack categories
+  const techStack = {
+    blockchain: [
+      { name: "Solidity", icon: FaEthereum },
+      { name: "Hardhat", icon: FaHammer },
+      { name: "Web3.js", icon: FaWallet },
+      { name: "Ethers.js", icon: FaChartLine },
+    ],
+    frontend: [
+      { name: "React", icon: FaReact },
+      { name: "Next.js", icon: FaCode },
+      { name: "TypeScript", icon: FaJs },
+      { name: "TailwindCSS", icon: FaCss3 },
+    ],
+    backend: [
+      { name: "Node.js", icon: FaNodeJs },
+      { name: "Python", icon: FaPython },
+      { name: "PostgreSQL", icon: FaDatabase },
+      { name: "MongoDB", icon: FaDatabase },
+    ],
+  };
 
   const socialLinks = [
-    { icon: FaGithub, href: "#", label: "GitHub" },
-    { icon: FaTwitter, href: "#", label: "Twitter" },
-    { icon: FaLinkedin, href: "#", label: "LinkedIn" },
+    { icon: FaGithub, href: "https://github.com/Sribabu-Mandraju", label: "GitHub" },
+    { icon: FaTwitter, href: "https://x.com/5R1B4BU", label: "Twitter" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/in/sribabu-mandraju-590524233/", label: "LinkedIn" },
   ];
 
   return (
@@ -261,40 +318,8 @@ const Home = () => {
 
       {/* Main Content */}
       <div className="relative z-10 p-4 sm:p-6 md:p-8 mx-auto max-w-7xl">
-        {/* Navigation Tabs */}
-        {/* <div className="flex flex-wrap gap-2 mb-8">
-          {["about", "skills", "journey", "tools", "achievements"].map(
-            (section) => (
-              <button
-                key={section}
-                onClick={() => setActiveSection(section)}
-                className={`px-4 py-2 rounded-lg font-mono text-sm transition-all duration-300 ${
-                  activeSection === section
-                    ? "bg-green-500/20 text-green-400 border border-green-500/30"
-                    : "text-green-500/70 hover:text-green-400 hover:bg-green-500/10"
-                }`}
-              >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </button>
-            )
-          )}
-        </div> */}
-
-        {/* User Profile Section with 3D Effect */}
-        <div
-          className="bg-black rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 mb-8 backdrop-blur-lg border border-green-500/20 relative overflow-hidden transform transition-all duration-500 hover:scale-[1.02]"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          style={{
-            transform: isHovered
-              ? `perspective(1000px) rotateX(${
-                  (mousePosition.y - window.innerHeight / 2) * 0.01
-                }deg) rotateY(${
-                  (mousePosition.x - window.innerWidth / 2) * 0.01
-                }deg)`
-              : "none",
-          }}
-        >
+        {/* Profile Section */}
+        <div className="mb-8 bg-black/80 backdrop-blur-sm rounded-xl border border-green-500/20 p-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-50"></div>
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/10 to-transparent rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-green-500/10 to-transparent rounded-full blur-3xl"></div>
@@ -316,10 +341,10 @@ const Home = () => {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div>
                   <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-400 font-mono tracking-tight">
-                    d4r3_w0lf
+                    SRI BABU <span className="text-zinc-400">aka</span> <span>5RIB4BU</span>
                   </h1>
                   <p className="text-green-500/70 mt-2 text-sm sm:text-base md:text-lg font-mono">
-                    Senior Security Researcher & Blockchain Developer
+                    Full Stack Developer
                   </p>
                 </div>
                 <div className="flex gap-4 mt-4 md:mt-0 justify-center">
@@ -340,8 +365,8 @@ const Home = () => {
                 {[
                   "Web3 Security",
                   "Smart Contracts",
-                  "Pentesting",
-                  "Bug Bounty",
+                  "DeFi Development",
+                  "DApp Architecture",
                 ].map((tag, index) => (
                   <span
                     key={index}
@@ -355,16 +380,15 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Stats Grid with Hover Effects */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="bg-black rounded-xl shadow-lg p-6 border border-green-500/20 relative overflow-hidden group hover:border-green-500/40 transition-all duration-300"
+              className="bg-black/80 backdrop-blur-sm rounded-xl p-6 border border-green-500/20 hover:border-green-500/40 transition-all duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="flex items-center gap-4 relative">
-                <div className="p-3 bg-green-900/30 rounded-lg border border-green-500/30 transform group-hover:scale-110 transition-transform duration-300">
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-green-900/30 rounded-lg border border-green-500/30">
                   <stat.icon className="w-6 h-6 text-green-400" />
                 </div>
                 <div>
@@ -383,18 +407,49 @@ const Home = () => {
           ))}
         </div>
 
-        {/* Skills Section with Animated Progress Bars */}
-        <div className="bg-black rounded-xl shadow-lg p-6 md:p-8 border border-green-500/20 relative overflow-hidden mb-8">
-          <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-50"></div>
+        {/* Tech Stack Categories */}
+        <div className="mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono mb-6">
-            Skills & Expertise
+            Tech Stack
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {Object.entries(techStack).map(([category, tools]) => (
+              <div
+                key={category}
+                className="bg-black/80 backdrop-blur-sm rounded-xl p-6 border border-green-500/20"
+              >
+                <h3 className="text-lg font-bold text-green-400 font-mono mb-4 capitalize">
+                  {category}
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {tools.map((tool, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-3 p-3 bg-green-900/30 rounded-lg border border-green-500/30 hover:border-green-500/40 transition-all duration-300"
+                    >
+                      <tool.icon className="w-5 h-5 text-green-400" />
+                      <span className="text-green-400 font-mono text-sm">
+                        {tool.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Skills Section */}
+        <div className="mb-8 bg-black/80 backdrop-blur-sm rounded-xl p-6 border border-green-500/20">
+          <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono mb-6">
+            Core Competencies
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
               <div key={index} className="group">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-green-900/30 rounded-lg border border-green-500/30 transform group-hover:scale-110 transition-transform duration-300">
+                    <div className="p-2 bg-green-900/30 rounded-lg border border-green-500/30">
                       <skill.icon className="w-4 h-4 text-green-400" />
                     </div>
                     <span className="text-green-400 font-mono">
@@ -418,93 +473,77 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Journey Timeline with Interactive Elements */}
+        {/* Recent Projects */}
         <div className="mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono mb-6">
-            My Journey
+            Recent Projects
           </h2>
-          <div className="relative border-l-2 border-green-500/20 pl-6">
-            {[
-              { year: "2024", event: "Senior Security Researcher @ CyberSecX" },
-              { year: "2022", event: "Blockchain Developer @ Web3Labs" },
-              { year: "2021", event: "Top 10 CTF Player" },
-              { year: "2019", event: "Started Bug Bounty Hunting" },
-              { year: "2017", event: "Graduated in Computer Science" },
-            ].map((item, idx) => (
-              <div key={idx} className="mb-8 last:mb-0 relative group">
-                <div className="absolute -left-3 top-1 w-2 h-2 bg-green-500 rounded-full shadow-lg group-hover:scale-150 transition-transform duration-300"></div>
-                <div className="text-green-400 font-mono text-sm mb-1 group-hover:text-green-300 transition-colors duration-300">
-                  {item.year}
-                </div>
-                <div className="text-green-400 font-mono group-hover:text-green-300 transition-colors duration-300">
-                  {item.event}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Tech Stack with Hover Effects */}
-        <div className="mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono mb-6">
-            Tech Stack & Tools
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {[
-              { name: "Solidity", icon: FaEthereum },
-              { name: "Burp Suite", icon: FaBug },
-              { name: "Nmap", icon: FaShieldHalved },
-              { name: "Bash", icon: FaTerminal },
-              { name: "React", icon: FaCode },
-              { name: "GitHub", icon: FaGithub },
-              { name: "Twitter", icon: FaTwitter },
-              { name: "LinkedIn", icon: FaLinkedin },
-            ].map((tool, idx) => (
-              <div
-                key={idx}
-                className="group relative bg-black border border-green-500/20 rounded-lg p-4 hover:border-green-500/40 transition-all duration-300"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative flex flex-col items-center">
-                  <tool.icon className="w-8 h-8 text-green-400 group-hover:scale-110 group-hover:text-green-300 transition-all duration-300" />
-                  <span className="mt-2 text-green-400 font-mono text-sm group-hover:text-green-300 transition-colors duration-300">
-                    {tool.name}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Achievements with Animated Cards */}
-        <div className="mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono mb-6">
-            Achievements
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                name: "OSCP",
-                desc: "Offensive Security Certified Professional",
+                title: "Karanyasetu",
+                tech: ["Solidity", "React", "Hardhat"],
+                description:
+                  "Decentralized Disaster Relief fund System",
               },
-              { name: "CEH", desc: "Certified Ethical Hacker" },
-              { name: "Top 10 CTF", desc: "International CTF Player" },
-              { name: "Smart Contract Auditor", desc: "Web3 Security" },
-            ].map((cert, idx) => (
+              {
+                title: "Futurax",
+                tech: ["React", "Web3.js", "IPFS","Solidity"],
+                description:
+                  "Decentralized predecting market ",
+              },
+              {
+                title: "Happy Farm",
+                tech: ["React", "Express.js", "tailwindcss"],
+                description: "An Ecommnerce platform for selling pesticides",
+              },
+              {
+                title: "Teckzite2k25",
+                tech: ["React", "Express.js", "Tailwindcss", "Figma","Typescript"],
+                description:
+                  "Multi-DEX trading platform with best price routing",
+              },
+            ].map((project, idx) => (
               <div
                 key={idx}
-                className="group relative bg-black border border-green-500/20 rounded-lg p-4 hover:border-green-500/40 transition-all duration-300"
+                className="bg-black/80 backdrop-blur-sm rounded-xl p-6 border border-green-500/20 hover:border-green-500/40 transition-all duration-300"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative">
-                  <span className="text-green-400 font-mono text-lg font-bold mb-2 block group-hover:text-green-300 transition-colors duration-300">
-                    {cert.name}
-                  </span>
-                  <span className="text-green-500/70 font-mono text-sm block group-hover:text-green-400 transition-colors duration-300">
-                    {cert.desc}
-                  </span>
+                <h3 className="text-lg font-bold text-green-400 font-mono mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-green-500/70 font-mono text-sm mb-4">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech, techIdx) => (
+                    <span
+                      key={techIdx}
+                      className="px-3 py-1 text-xs font-mono rounded-full bg-green-900/30 text-green-400 border border-green-500/30"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Contact Section */}
+        <div className="bg-black/80 backdrop-blur-sm rounded-xl p-6 border border-green-500/20">
+          <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono mb-6">
+            Connect
+          </h2>
+          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+            {socialLinks.map((social, idx) => (
+              <a
+                key={idx}
+                href={social.href}
+                className="flex items-center gap-2 px-4 py-2 bg-green-900/30 rounded-lg border border-green-500/30 text-green-400 hover:border-green-500/40 transition-all duration-300"
+              >
+                <social.icon className="w-5 h-5" />
+                <span className="font-mono text-sm">{social.label}</span>
+              </a>
             ))}
           </div>
         </div>

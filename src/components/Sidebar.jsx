@@ -97,11 +97,11 @@ const MenuItem = ({ item, isActive, isOpen, onToggle }) => {
               >
                 <SubIcon className="w-4 h-4 text-green-500" />
                 <span className="font-mono">{subItem.title}</span>
-                {isSubItemActive && (
+                {/* {isSubItemActive && (
                   <span className="ml-auto text-xs text-green-500/70">
                     [active]
                   </span>
-                )}
+                )} */}
               </Link>
             );
           })}
@@ -177,7 +177,7 @@ const Sidebar = ({ isOpen, onClose }) => {
               </div>
               <div className="flex flex-col">
                 <span className="text-sm font-mono text-green-400">
-                  nandeesh@d4r3_w0lf
+                  sribabu@5R1B4BU
                 </span>
                 <span className="text-xs text-green-500/70 font-mono">
                   {currentPath}

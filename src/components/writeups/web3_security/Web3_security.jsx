@@ -97,7 +97,7 @@ const Web3Security = () => {
         <h1 className="relative text-4xl md:text-5xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-600">
           Web3 Security Audits
         </h1>
-        <p className="mt-3 text-gray-400 font-mono relative">
+        <p className="mt-3 text-green-400/70 font-mono relative">
           Comprehensive smart contract security assessments and vulnerability
           reports
         </p>
@@ -105,7 +105,7 @@ const Web3Security = () => {
 
       {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-black/50 backdrop-blur-sm rounded-xl p-6 border border-green-500/20 hover:border-green-500/40 transition-all duration-300">
+        <div className="bg-black backdrop-blur-sm rounded-xl p-6 border border-green-500/20 hover:border-green-500/40 transition-all duration-300">
           <div className="flex items-center gap-4">
             <div className="p-3 bg-green-500/10 rounded-lg border border-green-500/20">
               <FaBug className="w-6 h-6 text-green-400" />
@@ -114,11 +114,13 @@ const Web3Security = () => {
               <h3 className="text-2xl font-mono font-bold text-green-400">
                 24
               </h3>
-              <p className="text-sm text-gray-400 font-mono">Total Audits</p>
+              <p className="text-sm text-green-400/70 font-mono">
+                Total Audits
+              </p>
             </div>
           </div>
         </div>
-        <div className="bg-black/50 backdrop-blur-sm rounded-xl p-6 border border-green-500/20 hover:border-green-500/40 transition-all duration-300">
+        <div className="bg-black backdrop-blur-sm rounded-xl p-6 border border-green-500/20 hover:border-green-500/40 transition-all duration-300">
           <div className="flex items-center gap-4">
             <div className="p-3 bg-green-500/10 rounded-lg border border-green-500/20">
               <FaTriangleExclamation className="w-6 h-6 text-green-400" />
@@ -127,7 +129,7 @@ const Web3Security = () => {
               <h3 className="text-2xl font-mono font-bold text-green-400">
                 156
               </h3>
-              <p className="text-sm text-gray-400 font-mono">
+              <p className="text-sm text-green-400/70 font-mono">
                 Vulnerabilities Found
               </p>
             </div>
@@ -143,12 +145,12 @@ const Web3Security = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search audits..."
-            className="w-full px-4 py-3 rounded-xl bg-black/50 backdrop-blur-sm border border-green-500/20 focus:outline-none focus:ring-2 focus:ring-green-500/50 pl-12 text-gray-300 font-mono placeholder-gray-500"
+            className="w-full px-4 py-3 rounded-xl bg-black backdrop-blur-sm border border-green-500/20 focus:outline-none focus:ring-2 focus:ring-green-500/50 pl-12 text-green-400 font-mono placeholder-green-400/50"
           />
-          <FaMagnifyingGlass className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
+          <FaMagnifyingGlass className="absolute left-4 top-1/2 transform -translate-y-1/2 text-green-400/50 w-5 h-5" />
         </div>
         <div className="flex gap-2">
-          <button className="px-4 py-3 rounded-xl bg-black/50 backdrop-blur-sm border border-green-500/20 text-gray-300 font-mono hover:border-green-500/40 transition-all duration-300 flex items-center gap-2">
+          <button className="px-4 py-3 rounded-xl bg-black backdrop-blur-sm border border-green-500/20 text-green-400 font-mono hover:border-green-500/40 transition-all duration-300 flex items-center gap-2">
             <FaFilter className="w-4 h-4" />
             Filter
           </button>
@@ -160,7 +162,7 @@ const Web3Security = () => {
         {audits.map((audit, index) => (
           <div
             key={index}
-            className="group bg-black/50 backdrop-blur-sm rounded-xl border border-green-500/20 overflow-hidden hover:border-green-500/40 transition-all duration-300 transform hover:-translate-y-1"
+            className="group bg-black backdrop-blur-sm rounded-xl border border-green-500/20 overflow-hidden hover:border-green-500/40 transition-all duration-300 transform hover:-translate-y-1"
           >
             <div className="p-6">
               {/* Header */}
@@ -177,7 +179,7 @@ const Web3Security = () => {
               <h3 className="text-xl font-mono font-bold text-green-400 mb-2">
                 {audit.title}
               </h3>
-              <p className="text-sm text-gray-400 font-mono mb-4">
+              <p className="text-sm text-green-400/70 font-mono mb-4">
                 {audit.description}
               </p>
 
@@ -196,8 +198,8 @@ const Web3Security = () => {
               {/* Footer */}
               <div className="flex items-center justify-between pt-4 border-t border-green-500/20">
                 <div className="flex items-center gap-2">
-                  <FaClock className="w-4 h-4 text-gray-500" />
-                  <span className="text-sm text-gray-400 font-mono">
+                  <FaClock className="w-4 h-4 text-green-400/50" />
+                  <span className="text-sm text-green-400/70 font-mono">
                     {audit.date}
                   </span>
                 </div>
@@ -209,7 +211,7 @@ const Web3Security = () => {
             </div>
 
             {/* Action Button */}
-            <div className="px-6 py-4 bg-black/30 border-t border-green-500/20">
+            <div className="px-6 py-4 bg-black border-t border-green-500/20">
               <button className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-green-500/10 text-green-400 rounded-lg border border-green-500/20 hover:bg-green-500/20 transition-all duration-300 group font-mono">
                 View Full Report
                 <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
