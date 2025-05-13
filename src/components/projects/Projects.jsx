@@ -57,90 +57,118 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "DeFi Portfolio Tracker",
+      title: "Teckzite2k25 Official Website",
       description:
-        "A comprehensive DeFi portfolio tracking application with real-time price updates and yield analytics.",
+        "A dynamic platform for Teckzite, the annual National Techno-management fest at RGUKT Nuzvid. Built with the MERN stack, featuring Google Authentication, Razorpay payment gateway, and a custom admin panel for managing events and participants.",
+      category: "web",
+      tags: ["React", "Node.js", "Express.js", "MongoDB", "TailwindCSS"],
+      image:
+        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop&q=60",
+      github: {
+        frontend: "https://github.com/Sribabu-Mandraju/teckzite-frontend",
+        backend: "https://github.com/Sribabu-Mandraju/teckzite-backend",
+      },
+      live: "https://teckzite.vercel.app",
+      impact: "Enabled 1,000+ participants to register and manage event activities.",
+      techStack: ["MERN Stack", "Razorpay", "Google Auth", "TailwindCSS", "AWS"],
+    },
+    {
+      title: "MeeNews Calendar Portal",
+      description:
+        "A commercial ad-slot booking portal for Mee24News, allowing users and reporters to buy regional ad spaces across AP and Telangana with real-time pricing and secure payments.",
+      category: "web",
+      tags: ["React", "Node.js", "MongoDB", "Express.js"],
+      image:
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&auto=format&fit=crop&q=60",
+      github: {
+        frontend: "https://github.com/Sribabu-Mandraju/meenews-frontend",
+        backend: "https://github.com/Sribabu-Mandraju/meenews-backend",
+      },
+      live: "https://meenews.in",
+      impact: "Streamlined regional ad-slot purchases for over 100 reporters.",
+      techStack: ["MERN Stack", "Payment Gateway", "Role-based Dashboard"],
+    },
+    {
+      title: "AZLogic Solutions",
+      description:
+        "Landing page for a digital solutions company, built with engaging UI/UX and Framer Motion for smooth animations.",
+      category: "web",
+      tags: ["React", "Framer Motion", "TailwindCSS"],
+      image:
+        "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=800&auto=format&fit=crop&q=60",
+      github: "https://github.com/Sribabu-Mandraju/azlogic-solutions",
+      live: "https://azlogic.in",
+      impact: "Improved conversion with a visually appealing and modern interface.",
+      techStack: ["React", "TailwindCSS", "Framer Motion"],
+    },
+    {
+      title: "Livebreak App and website",
+      description:
+        "A local news app for real time updates and have realtime feedbacks and instaneous news from reporters",
+      category: "mobile",
+      tags: ["Ionic", "Angular", "Node.js", "MongoDB","React"],
+      image:
+        "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=60",
+      live: "https://live-break-kappa.vercel.app/",
+      impact: "Empowered rural users with digital news access.",
+      techStack: ["Angular", "Ionic", "MongoDB", "TailwindCSS"],
+    },
+    {
+      title: "MeeBuddy App and Website",
+      description:
+        "An eCommerce platform tailored for rural India, featuring cross-platform app functionality with Ionic and Angular. Worked on major UI improvements and backend features.",
+      category: "mobile",
+      tags: ["Ionic", "Angular", "Node.js", "MongoDB"],
+      image:
+        "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=60",
+      live: "https://meebuddy.in",
+      impact: "Empowered rural users with digital commerce access.",
+      techStack: ["Angular", "Ionic", "MongoDB", "TailwindCSS"],
+    },
+    {
+      title: "Teckzite2k25 Admin Panel",
+      description:
+       "An admin panel to maintain and send real time updates by the coordinators of teckzite monitoring registrations for the event and analysing statistics and trafic from users",
+      category: "web",
+      tags: ["React", "Node.js", "Express.js", "MongoDB", "TailwindCSS"],
+      image:
+        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop&q=60",
+      github: {
+        frontend: "https://github.com/Sribabu-Mandraju/teckzite-frontend",
+        backend: "https://github.com/Sribabu-Mandraju/teckzite-backend",
+      },
+      live: "https://teckzite.vercel.app",
+      impact: "Enabled 1,000+ participants to register and manage event activities.",
+      techStack: ["MERN Stack", "Razorpay", "Google Auth", "TailwindCSS", "AWS"],
+    },
+    {
+      title: "Futurax",
+      description:
+        "A decentralized prediction platform where users stake crypto on real-world events. Utilizes smart contracts for fair and tamper-proof outcomes.",
       category: "web3",
-      tags: ["React", "Ethereum", "Web3.js"],
+      tags: ["Solidity", "React", "Blockchain", "Web3"],
       image:
         "https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&auto=format&fit=crop&q=60",
-      github: "https://github.com/yourusername/defi-tracker",
-      live: "https://defi-tracker.example.com",
-      stats: {
-        stars: 128,
-        forks: 45,
-        views: 1200,
-      },
-      impact: "Helped users track over $1M in DeFi assets",
-      techStack: ["React", "Ethereum", "Web3.js", "Chart.js", "TailwindCSS"],
+      github: "https://github.com/Sribabu-Mandraju/futurax",
+      live: "https://futurax.in",
+      impact: "Enabled transparent prediction markets with secure crypto staking.",
+      techStack: ["Solidity", "React", "Ethers.js", "Smart Contracts"],
     },
     {
-      title: "E-Commerce Platform",
+      title: "Karunyasetu Dapp",
       description:
-        "A full-stack e-commerce solution with real-time inventory management and payment processing.",
-      category: "web",
-      tags: ["Next.js", "Node.js", "MongoDB"],
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=60",
-      github: "https://github.com/yourusername/ecommerce",
-      live: "https://ecommerce.example.com",
-      stats: {
-        stars: 256,
-        forks: 89,
-        views: 2500,
-      },
-      impact: "Processed over 10,000 transactions",
-      techStack: ["Next.js", "Node.js", "MongoDB", "Redis", "Docker"],
-    },
-    {
-      title: "NFT Marketplace",
-      description:
-        "A decentralized NFT marketplace with minting capabilities and auction system.",
+        "A blockchain-based disaster relief system offering instant, transparent aid distribution. Features multilingual AI chatbots and decentralized verification.",
       category: "web3",
-      tags: ["Solidity", "React", "IPFS"],
+      tags: ["Solidity", "Smart Contracts", "Web3", "AI Chatbot"],
       image:
-        "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&auto=format&fit=crop&q=60",
-      github: "https://github.com/yourusername/nft-marketplace",
-      live: "https://nft-marketplace.example.com",
-      stats: {
-        stars: 342,
-        forks: 156,
-        views: 3800,
-      },
-    },
-    {
-      title: "Mobile Task Manager",
-      description:
-        "A cross-platform mobile application for task management with offline support.",
-      category: "mobile",
-      tags: ["React Native", "Redux", "Firebase"],
-      image:
-        "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=60",
-      github: "https://github.com/yourusername/task-manager",
-      live: "https://task-manager.example.com",
-      stats: {
-        stars: 189,
-        forks: 67,
-        views: 1800,
-      },
-    },
-    {
-      title: "API Gateway Service",
-      description:
-        "A scalable API gateway service with rate limiting and authentication.",
-      category: "backend",
-      tags: ["Node.js", "Redis", "Docker"],
-      image:
-        "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=60",
-      github: "https://github.com/yourusername/api-gateway",
-      live: "https://api-gateway.example.com",
-      stats: {
-        stars: 156,
-        forks: 45,
-        views: 1500,
-      },
+        "https://images.unsplash.com/photo-1581093588401-23d542f3fc6c?w=800&auto=format&fit=crop&q=60",
+      github: "https://github.com/Sribabu-Mandraju/karunyasetu",
+      live: "https://karunyasetu.io",
+      impact: "Restored trust in relief distribution during crises using blockchain.",
+      techStack: ["Solidity", "React", "IPFS", "ChatGPT", "Smart Contracts"],
     },
   ];
+  
 
   const filteredProjects = projects
     .filter(

@@ -501,7 +501,7 @@ const Home = () => {
                 title: "Teckzite2k25",
                 tech: ["React", "Express.js", "Tailwindcss", "Figma","Typescript"],
                 description:
-                  "Multi-DEX trading platform with best price routing",
+                  "College National level techfest",
               },
             ].map((project, idx) => (
               <div
