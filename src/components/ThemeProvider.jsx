@@ -25,6 +25,7 @@ export const ThemeProvider = ({ children }) => {
     return false;
   });
 
+  // ..
   // Function to update the DOM and localStorage
   const applyTheme = (dark) => {
     const root = document.documentElement;
