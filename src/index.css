@@ -12,3 +12,11 @@
     display: none;              /* Hides scrollbar */
   }
   
+  /* Glow effect for hover states and title */
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+}
+
+.drop-shadow-glow {
+  filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.4));
+}

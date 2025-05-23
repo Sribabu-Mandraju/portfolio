@@ -49,7 +49,7 @@ const MenuItem = ({ item, isActive, isOpen, onToggle, onClose }) => {
   );
 
   return (
-    <div className="mb-2">
+    <div className="mb-2 relative z-50">
       {hasSubItems ? (
         <button
           onClick={onToggle}

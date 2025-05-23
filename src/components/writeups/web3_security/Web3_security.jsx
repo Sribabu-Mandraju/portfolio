@@ -92,8 +92,8 @@ const Web3Security = () => {
   return (
     <div className="p-4 mx-auto max-w-7xl">
       {/* Header Section */}
-      <div className="mb-8 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-transparent rounded-lg blur-3xl"></div>
+      <div className="mb-8 relative mt-7 md:mt-0">
+<div className="absolute inset-0 bg-gradient-to-r from-green-400/10 via-green-500/30 to-transparent rounded-xl blur-2xl shadow-lg animate-pulse opacity-70"></div>
         <h1 className="relative text-4xl md:text-5xl font-bold font-mono bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-600">
           Web3 Security Audits
         </h1>
@@ -138,24 +138,24 @@ const Web3Security = () => {
       </div>
 
       {/* Search and Filter */}
-      <div className="mb-8 flex flex-col sm:flex-row gap-4">
-        <div className="relative flex-1">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search audits..."
-            className="w-full px-4 py-3 rounded-xl bg-black backdrop-blur-sm border border-green-500/20 focus:outline-none focus:ring-2 focus:ring-green-500/50 pl-12 text-green-400 font-mono placeholder-green-400/50"
-          />
-          <FaMagnifyingGlass className="absolute left-4 top-1/2 transform -translate-y-1/2 text-green-400/50 w-5 h-5" />
-        </div>
-        <div className="flex gap-2">
-          <button className="px-4 py-3 rounded-xl bg-black backdrop-blur-sm border border-green-500/20 text-green-400 font-mono hover:border-green-500/40 transition-all duration-300 flex items-center gap-2">
-            <FaFilter className="w-4 h-4" />
-            Filter
-          </button>
-        </div>
-      </div>
+     <div className="mb-10 flex flex-col sm:flex-row gap-4">
+  <div className="relative flex-1">
+    <input
+      type="text"
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      placeholder="Search audits..."
+      className="w-full px-4 py-3 rounded-xl bg-black backdrop-blur-sm border border-green-500/30 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500/60 pl-12 text-green-300 font-mono placeholder-green-400/50 shadow-md"
+    />
+    <FaMagnifyingGlass className="absolute left-4 top-1/2 transform -translate-y-1/2 text-green-400/50 w-5 h-5" />
+  </div>
+  <div className="flex gap-2">
+    <button className="px-5 py-3 rounded-xl bg-gradient-to-r from-green-500/10 to-green-500/5 border border-green-500/30 text-green-300 font-mono hover:border-green-500/60 hover:bg-green-500/10 transition-all duration-300 flex items-center gap-2 shadow-sm">
+      <FaFilter className="w-4 h-4" />
+      Filter
+    </button>
+  </div>
+</div>
 
       {/* Audit Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

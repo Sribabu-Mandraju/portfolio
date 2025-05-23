@@ -210,177 +210,170 @@ const Projects = () => {
     );
 
   return (
-    <div
-      className="min-h-screen bg-black relative overflow-hidden"
-      onMouseMove={handleMouseMove}
-    >
-      {/* Interactive Background */}
-      <div
-        className="fixed inset-0 pointer-events-none"
-        style={{
-          background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.1) 0%, transparent 50%)`,
-        }}
-      />
+  <div
+  className="min-h-screen bg-black relative overflow-hidden"
+  onMouseMove={handleMouseMove}
+>
+  {/* Interactive Background */}
+  <div
+    className="fixed inset-0 pointer-events-none"
+    style={{
+      background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 197, 94, 0.1) 0%, transparent 50%)`,
+    }}
+  />
 
-      {/* Main Content */}
-      <div className="relative z-10 p-4 mx-auto mt-[40px] md:mt-2 max-w-7xl font-mono">
-        {/* Categories Section */}
-        <div className="flex flex-wrap gap-3 mb-8">
-          {categories.map((category) => {
-            const Icon = category.icon;
-            return (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`
-                  flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium
-                  transition-all duration-300 transform hover:scale-105
-                  ${
-                    activeCategory === category.id
-                      ? "bg-black text-green-400 border border-green-500/30 shadow-lg shadow-green-500/10"
-                      : "bg-black text-gray-400 border border-gray-800 hover:bg-black hover:text-green-400 hover:border-green-500/30"
-                  }
-                `}
-              >
-                <Icon className="w-4 h-4" />
-                {category.name}
-              </button>
-            );
-          })}
-        </div>
+  {/* Main Content */}
+  <div className="relative z-10 p-4 md:p-6 max-w-7xl mx-auto font-mono">
+    {/* Categories Section */}
+    <div className="flex flex-wrap justify-center gap-3 mb-6 md:mb-8">
+      {categories.map((category) => {
+        const Icon = category.icon;
+        return (
+          <button
+            key={category.id}
+            onClick={() => setActiveCategory(category.id)}
+            className={`
+              flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium
+              transition-all duration-300 transform hover:scale-105 mt-4 md:mt-0
+              ${
+                activeCategory === category.id
+                  ? "bg-green-900/20 text-green-400 border border-green-400/30 shadow-md"
+                  : "bg-black text-gray-400 border border-gray-800 hover:bg-green-900/10 hover:text-green-400 hover:border-green-500/30"
+              }
+            `}
+          >
+            <Icon className="w-4 h-4" />
+            {category.name}
+          </button>
+        );
+      })}
+    </div>
 
-        {/* Search Bar */}
-        <div className="mb-8">
-          <div className="relative group">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="> Search projects..."
-              className="w-full px-6 py-3 rounded-lg bg-black 
-                border border-green-500/30 text-green-400
-                focus:outline-none focus:ring-2 focus:ring-green-500/50 
-                pl-14 pr-6 shadow-lg group-hover:shadow-xl transition-all duration-300
-                placeholder-green-500/50"
-            />
-            <FaMagnifyingGlass
-              className="absolute left-5 top-1/2 transform -translate-y-1/2 
-              text-green-500/50 w-5 h-5 
-              group-hover:text-green-400 
-              transition-colors duration-300"
-            />
-          </div>
-        </div>
-
-        {/* Projects Grid */}
-        {isLoading ? (
-          <div className="animate-pulse bg-black rounded-xl h-40 w-full border border-green-500/20" />
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, index) => {
-              const category = categories.find(
-                (cat) => cat.id === project.category
-              );
-              const isHovered = hoveredProject === index;
-
-              return (
-                <div
-                  key={index}
-                  className="relative group font-mono h-full"
-                  onMouseEnter={() => setHoveredProject(index)}
-                  onMouseLeave={() => setHoveredProject(null)}
-                >
-                  <div
-                    className={`
-                    absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10
-                    transition-opacity duration-300 rounded-xl
-                  `}
-                  />
-
-                  <div
-                    className="relative bg-black/80 backdrop-blur-sm rounded-xl shadow-lg border border-green-500/20 
-                    overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]
-                    h-full flex flex-col"
-                  >
-                    <div className="p-6 flex flex-col flex-grow">
-                      <div className="flex items-center gap-2 mb-3">
-                        <FaLinux className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <h3 className="text-xl font-bold text-green-400 group-hover:text-green-300 transition-colors truncate">
-                          {project.title}
-                        </h3>
-                      </div>
-                      <p className="text-sm text-green-500/70 mb-4 line-clamp-3">
-                        {project.description}
-                      </p>
-
-                      <div className="mb-4">
-                        <div className="flex flex-wrap gap-2">
-                          {(project.techStack || project.tags).map(
-                            (tech, idx) => (
-                              <span
-                                key={idx}
-                                className="px-2 py-1 text-xs font-medium rounded-md bg-black 
-                                text-green-400 border border-green-500/30
-                                group-hover:bg-green-900/20 
-                                group-hover:text-green-300
-                                group-hover:border-green-400/50
-                                transition-all duration-300"
-                              >
-                                {tech}
-                              </span>
-                            )
-                          )}
-                        </div>
-                      </div>
-
-                      {project.impact && (
-                        <div className="p-3 bg-black rounded-lg border border-green-500/30 mb-4">
-                          <div className="flex items-center gap-2">
-                            <FaBug className="w-4 h-4 text-green-500 flex-shrink-0" />
-                            <span className="text-sm text-green-400 line-clamp-2">
-                              {project.impact}
-                            </span>
-                          </div>
-                        </div>
-                      )}
-
-                      <div className="flex gap-3 mt-auto pt-4">
-                        {project.github && (
-                          <a
-                            href={
-                              typeof project.github === "string"
-                                ? project.github
-                                : project.github.frontend
-                            }
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-black text-green-400 rounded-lg border border-green-500/30 hover:bg-green-900/20 hover:text-green-300 hover:border-green-400/50 transform hover:scale-105 transition-all duration-300 text-sm"
-                          >
-                            <FaGithub className="w-4 h-4 flex-shrink-0" />
-                            GitHub
-                          </a>
-                        )}
-                        {project.live && (
-                          <a
-                            href={project.live}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-black text-green-400 rounded-lg border border-green-500/30 hover:bg-green-900/20 hover:text-green-300 hover:border-green-400/50 transform hover:scale-105 transition-all duration-300 text-sm"
-                          >
-                            <FaTerminal className="w-4 h-4 flex-shrink-0" />
-                            View
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
+    {/* Search Bar */}
+    <div className="mb-6 md:mb-8">
+      <div className="relative group">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="> Search projects..."
+          className="w-full px-6 py-3 rounded-lg bg-black 
+            border border-green-500/30 text-green-400 placeholder-green-500/40
+            focus:outline-none focus:ring-2 focus:ring-green-500/50 
+            pl-14 pr-6 shadow-md group-hover:shadow-lg transition-all duration-300"
+        />
+        <FaMagnifyingGlass
+          className="absolute left-5 top-1/2 transform -translate-y-1/2 
+          text-green-500/50 w-5 h-5 group-hover:text-green-400 transition-colors duration-300"
+        />
       </div>
     </div>
+
+    {/* Projects Grid */}
+    {isLoading ? (
+      <div className="animate-pulse bg-black rounded-xl h-40 w-full border border-green-500/20" />
+    ) : (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredProjects.map((project, index) => {
+          const category = categories.find(cat => cat.id === project.category);
+          const isHovered = hoveredProject === index;
+
+          return (
+            <div
+              key={index}
+              className="relative group font-mono h-full"
+              onMouseEnter={() => setHoveredProject(index)}
+              onMouseLeave={() => setHoveredProject(null)}
+            >
+              <div
+                className={`
+                  absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10
+                  transition-opacity duration-300 rounded-xl
+                `}
+              />
+
+              <div
+                className="relative bg-black/80 backdrop-blur-sm rounded-xl shadow-lg border border-green-500/20 
+                overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02]
+                h-full flex flex-col"
+              >
+                <div className="p-5 md:p-6 flex flex-col flex-grow">
+                  <div className="flex items-center gap-2 mb-3">
+                    <FaLinux className="w-5 h-5 text-green-500" />
+                    <h3 className="text-lg md:text-xl font-bold text-green-400 group-hover:text-green-300 transition-colors truncate">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-green-500/70 mb-4 line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  <div className="mb-4">
+                    <div className="flex flex-wrap gap-2">
+                      {(project.techStack || project.tags).map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="px-2 py-1 text-xs font-medium rounded bg-black 
+                          text-green-400 border border-green-500/30
+                          group-hover:bg-green-900/20 
+                          group-hover:text-green-300 group-hover:border-green-400/50
+                          transition-all duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {project.impact && (
+                    <div className="p-3 bg-black rounded-lg border border-green-500/30 mb-4">
+                      <div className="flex items-center gap-2">
+                        <FaBug className="w-4 h-4 text-green-500" />
+                        <span className="text-sm text-green-400 line-clamp-2">
+                          {project.impact}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-4">
+                    {project.github && (
+                      <a
+                        href={
+                          typeof project.github === "string"
+                            ? project.github
+                            : project.github.frontend
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-black text-green-400 rounded-lg border border-green-500/30 hover:bg-green-900/20 hover:text-green-300 hover:border-green-400/50 transform hover:scale-105 transition-all duration-300 text-sm"
+                      >
+                        <FaGithub className="w-4 h-4" />
+                        GitHub
+                      </a>
+                    )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-black text-green-400 rounded-lg border border-green-500/30 hover:bg-green-900/20 hover:text-green-300 hover:border-green-400/50 transform hover:scale-105 transition-all duration-300 text-sm"
+                      >
+                        <FaTerminal className="w-4 h-4" />
+                        View
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    )}
+  </div>
+</div>
+
   );
 };
 

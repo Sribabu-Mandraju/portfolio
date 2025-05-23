@@ -80,22 +80,25 @@ const Navbar = ({ onMenuClick }) => {
             </div>
 
             {/* Search bar */}
-            <div className="hidden md:block relative group">
-              <input
-                type="text"
-                placeholder="> Search..."
-                className="w-72 px-4 py-2 pl-10 rounded-lg 
-                  bg-gray-800 dark:bg-black
-                  text-green-400 dark:text-green-400 
-                  placeholder-green-500/50
-                  border border-green-500/30
-                  focus:outline-none focus:ring-2 focus:ring-green-500/50
-                  transition-all duration-300"
-              />
-              <div className="absolute left-3 top-2.5 text-green-500/50 group-hover:text-green-400 transition-colors duration-300">
-                <FaMagnifyingGlass className="w-4 h-4" />
-              </div>
-            </div>
+           <div className="hidden md:block relative group">
+  <input
+    type="text"
+    placeholder="Search..."
+    className="w-80 px-5 py-2.5 pl-12 rounded-lg
+      bg-gradient-to-br from-gray-800 to-black
+      text-green-400 placeholder-green-500/50
+      border border-green-500/30
+      shadow-md shadow-green-500/10
+      focus:outline-none focus:ring-2 focus:ring-green-500/60 focus:ring-offset-2 focus:ring-offset-gray-900
+      transition-all duration-300 ease-in-out
+      group-hover:shadow-lg group-hover:shadow-green-500/20
+      placeholder:transition-all placeholder:duration-300 focus:placeholder:text-green-500/70"
+  />
+  <div className="absolute left-4 top-3.5 text-green-500/50 group-hover:text-green-400 transition-colors duration-300 ease-in-out">
+    <FaMagnifyingGlass className="w-5 h-5 group-hover:scale-110 transform transition-transform duration-300" />
+  </div>
+</div>
+
           </div>
 
           {/* Right side */}

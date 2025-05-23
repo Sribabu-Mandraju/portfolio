@@ -32,7 +32,7 @@ const DashboardLayout = ({ children }) => {
           <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-8">
             <div className="flex flex-col gap-2 sm:gap-3">
               {/* Page Header - Fixed Position */}
-              <div className="sticky top-[64px] z-40 bg-black/95 backdrop-blur-sm py-2">
+              <div className="sticky top-[64px] z-20 bg-black/95 backdrop-blur-sm py-2">
                 <div className="flex flex-wrap items-center gap-1 sm:gap-2 text-xs sm:text-sm">
                   <div className="flex items-center font-mono font-bold text-green-400 whitespace-nowrap">
                     <span className="text-green-500">root@5R1B4BU</span>

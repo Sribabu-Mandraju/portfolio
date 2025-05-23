@@ -370,7 +370,7 @@ const Home = () => {
                 ].map((tag, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1.5 text-sm font-medium rounded-lg bg-green-900/30 text-green-400 border border-green-500/30 hover:bg-green-500/20 transition-all duration-300 transform hover:scale-105"
+                    className="w-[145px] px-3 py-1.5 text-sm font-medium rounded-lg bg-green-900/30 text-green-400 border border-green-500/30 hover:bg-green-500/20 transition-all duration-300 transform hover:scale-105"
                   >
                     {tag}
                   </span>
