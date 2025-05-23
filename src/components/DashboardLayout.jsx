@@ -28,7 +28,7 @@ const DashboardLayout = ({ children }) => {
         </div>
 
         {/* Main Content Area */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-black relative">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-black relative mt-[-40px]">
           <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-8">
             <div className="flex flex-col gap-2 sm:gap-3">
               {/* Page Header - Fixed Position */}
