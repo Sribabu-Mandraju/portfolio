@@ -74,7 +74,7 @@ const Projects = () => {
       image:
         "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&auto=format&fit=crop&q=60",
       github: {
-        frontend: "https://github.com/Sribabu-Mandraju/teckzite-frontend",
+        frontend: "https://github.com/siddhuthecoder/teckzite24",
         backend: "https://github.com/Sribabu-Mandraju/teckzite-backend",
       },
       live: "https://teckzite.vercel.app",
