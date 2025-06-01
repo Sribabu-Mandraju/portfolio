@@ -30,6 +30,7 @@ import {
   FaChartLine,
   FaHammer,
 } from "react-icons/fa6";
+import myProfile from "../../assets/my_profile.png"
 
 // Typing effect component for terminal-style typing
 const TypingEffect = ({ text, speed = 30 }) => {
@@ -328,7 +329,7 @@ const Home = () => {
             <div className="relative group">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-green-700 rounded-full blur opacity-50 group-hover:opacity-75 transition duration-500"></div>
               <img
-                src="https://avatars.dicebear.com/api/initials/HD.svg"
+                src={myProfile}
                 alt="Profile"
                 className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-4 border-black shadow-xl transform transition duration-500 hover:scale-105"
               />
@@ -381,7 +382,7 @@ const Home = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {stats.map((stat, index) => (
             <div
               key={index}
@@ -405,7 +406,7 @@ const Home = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Tech Stack Categories */}
         <div className="mb-8">
