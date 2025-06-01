@@ -58,15 +58,15 @@ export const menuItems = [
     icon: FaBook,
     path: "/blogs",
     subItems: [
-      { title: "Authentication & Security", path: "/blogs/auth", icon: FaKey },
-      { title: "Backend Development", path: "/blogs/backend", icon: FaServer },
-      { title: "Frontend Libraries", path: "/blogs/frontend", icon: FaCode },
-      {
-        title: "Database Operations",
-        path: "/blogs/database",
-        icon: FaDatabase,
-      },
-      { title: "Web3 Development", path: "/blogs/web3", icon: FaCube },
+      { title: "StakeReward Protocol", path: "/blogs/stake-reward", icon: FaCube },
+      // { title: "Backend Development", path: "/blogs/backend", icon: FaServer },
+      // { title: "Frontend Libraries", path: "/blogs/frontend", icon: FaCode },
+      // {
+      //   title: "Database Operations",
+      //   path: "/blogs/database",
+      //   icon: FaDatabase,
+      // },
+      // { title: "Web3 Development", path: "/blogs/web3", icon: FaCube },
     ],
   },
 ];
