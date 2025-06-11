@@ -193,6 +193,20 @@ const Projects = () => {
         "Restored trust in relief distribution during crises using blockchain.",
       techStack: ["Solidity", "React", "IPFS", "ChatGPT", "Smart Contracts"],
     },
+      {
+      title: "Decentralized TimeLock Deposit",
+      description:
+        "An ERC721-based staking system where users lock USDT to mint NFTs representing time-locked deposits with fixed ROI.",
+      category: "web3"  ,
+      tags: ["Solidity", "React", "Blockchain", "Web3","base-mainnet"],
+      image:
+        "https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&auto=format&fit=crop&q=60",
+      github: "https://github.com/Sribabu-Mandraju/rvs_labs",
+      live: "https://www.rvrlabs.xyz",
+      impact:
+        "Enabled transparent prediction markets with secure crypto staking.",
+      techStack: ["Solidity", "React","Node.js", "Ethers.js", "Smart Contracts"],
+    },
   ];
 
   const filteredProjects = projects

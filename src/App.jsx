@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
 import Projects from "./components/projects/Projects";
 import StakingRewardsBlog from "./pages/blogs/StakeReward";
+import FallbackBlog from "./pages/blogs/FallBack_Blog";
 const App = () => {
   return (
     <ThemeProvider>
@@ -32,6 +33,7 @@ const App = () => {
                 path="/blogs/stake-reward"
                 element={<StakingRewardsBlog />}
               />
+              <Route path="/blogs/fallback-eth" element={<FallbackBlog />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>

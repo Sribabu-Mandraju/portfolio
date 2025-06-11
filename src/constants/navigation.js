@@ -28,6 +28,7 @@ import {
   FaServer,
   FaMap,
   FaDatabase,
+  FaEthereum
 } from "react-icons/fa6";
 
 export const menuItems = [
@@ -59,6 +60,7 @@ export const menuItems = [
     path: "/blogs",
     subItems: [
       { title: "StakeReward Protocol", path: "/blogs/stake-reward", icon: FaCube },
+      { title: "Ethernaut Fallback CTF", path: "/blogs/fallback-eth", icon: FaEthereum },
       // { title: "Backend Development", path: "/blogs/backend", icon: FaServer },
       // { title: "Frontend Libraries", path: "/blogs/frontend", icon: FaCode },
       // {
