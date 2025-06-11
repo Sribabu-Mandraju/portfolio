@@ -71,14 +71,14 @@ const Fal1out = () => {
 
   const InfoBox = ({ title, children }) => (
     <div className="bg-green-900/10 border border-green-500/20 rounded-lg p-4 mb-6">
-      <h3 className="text-green-400 font-mono text-lg mb-2">{title}</h3>
-      <div className="text-green-300/90">{children}</div>
+      <h3 className="text-zinc-200 font-mono text-lg mb-2">{title}</h3>
+      <div className="text-zinc-400">{children}</div>
     </div>
   );
 
   return (
     <div
-      className="min-h-screen bg-black text-green-400 font-mono"
+      className="min-h-screen bg-black text-zinc-300 font-mono"
       ref={contentRef}
     >
       {/* Scroll Progress Bar */}
@@ -98,7 +98,7 @@ const Fal1out = () => {
               <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
               <div className="w-3 h-3 bg-green-500 rounded-full"></div>
             </div>
-            <div className="text-sm text-green-400/60">
+            <div className="text-sm text-zinc-400">
               {typedText}
               {showCursor && <span className="animate-pulse">|</span>}
             </div>
@@ -109,7 +109,7 @@ const Fal1out = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl font-bold text-green-400 mb-6">
+          <h1 className="text-3xl sm:text-4xl font-bold text-green-500 mb-6">
             Fal1out: The Constructor Typo Vulnerability
           </h1>
 
@@ -122,7 +122,7 @@ const Fal1out = () => {
 
           <div className="space-y-6">
             <section>
-              <h2 className="text-2xl text-green-400 mb-4">
+              <h2 className="text-2xl text-green-500 mb-4">
                 The Vulnerable Contract
               </h2>
               <CodeBlock
@@ -168,19 +168,19 @@ contract Fallout {
 }`}
               />
             </section>
-{/* //dd */}
+            {/* //dd */}
             <section>
-              <h2 className="text-2xl text-green-400 mb-4">
+              <h2 className="text-2xl text-green-500 mb-4">
                 The Vulnerability
               </h2>
               <div className="space-y-4">
-                <p className="text-green-300/90">
+                <p className="text-zinc-400">
                   The critical vulnerability lies in the constructor function
                   name. In Solidity versions before 0.8.0, the constructor was
                   defined by a function with the same name as the contract.
                   However, in this contract:
                 </p>
-                <ul className="list-disc list-inside space-y-2 text-green-300/90">
+                <ul className="list-disc list-inside space-y-2 text-zinc-400">
                   <li>
                     The contract is named{" "}
                     <code className="text-green-400">Fallout</code>
@@ -199,12 +199,10 @@ contract Fallout {
             </section>
 
             <section>
-              <h2 className="text-2xl text-green-400 mb-4">The Exploit</h2>
+              <h2 className="text-2xl text-green-500 mb-4">The Exploit</h2>
               <div className="space-y-4">
-                <p className="text-green-300/90">
-                  To exploit this vulnerability:
-                </p>
-                <ol className="list-decimal list-inside space-y-2 text-green-300/90">
+                <p className="text-zinc-400">To exploit this vulnerability:</p>
+                <ol className="list-decimal list-inside space-y-2 text-zinc-400">
                   <li>
                     Simply call the{" "}
                     <code className="text-green-400">Fal1out()</code> function
@@ -225,7 +223,7 @@ contract Fallout {
 
             <InfoBox title="Security Lesson">
               This vulnerability highlights the importance of:
-              <ul className="list-disc list-inside mt-2 space-y-1">
+              <ul className="list-disc list-inside mt-2 space-y-1 text-zinc-400">
                 <li>Careful naming of constructor functions</li>
                 <li>
                   Using the <code className="text-green-400">constructor</code>{" "}
@@ -239,12 +237,12 @@ contract Fallout {
             </InfoBox>
 
             <section>
-              <h2 className="text-2xl text-green-400 mb-4">Prevention</h2>
+              <h2 className="text-2xl text-green-500 mb-4">Prevention</h2>
               <div className="space-y-4">
-                <p className="text-green-300/90">
+                <p className="text-zinc-400">
                   To prevent this type of vulnerability:
                 </p>
-                <ul className="list-disc list-inside space-y-2 text-green-300/90">
+                <ul className="list-disc list-inside space-y-2 text-zinc-400">
                   <li>
                     Use the <code className="text-green-400">constructor</code>{" "}
                     keyword in Solidity 0.8.0 and above
@@ -259,8 +257,8 @@ contract Fallout {
             </section>
 
             <div className="mt-8 p-4 bg-green-900/10 border border-green-500/20 rounded-lg">
-              <h3 className="text-xl text-green-400 mb-2">Key Takeaways</h3>
-              <ul className="list-disc list-inside space-y-2 text-green-300/90">
+              <h3 className="text-xl text-zinc-100 mb-2">Key Takeaways</h3>
+              <ul className="list-disc list-inside space-y-2 text-zinc-400">
                 <li>
                   Constructor naming is critical in smart contract security
                 </li>
