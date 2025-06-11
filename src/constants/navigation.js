@@ -60,7 +60,8 @@ export const menuItems = [
     path: "/blogs",
     subItems: [
       { title: "StakeReward Protocol", path: "/blogs/stake-reward", icon: FaCube },
-      { title: "Ethernaut Fallback CTF", path: "/blogs/fallback-eth", icon: FaEthereum },
+      { title: "Ethernaut Fallback ", path: "/blogs/fallback-eth", icon: FaEthereum },
+      { title: "Ethernaut Fal1out ", path: "/blogs/fal1out-eth", icon: FaEthereum },
       // { title: "Backend Development", path: "/blogs/backend", icon: FaServer },
       // { title: "Frontend Libraries", path: "/blogs/frontend", icon: FaCode },
       // {

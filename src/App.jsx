@@ -11,6 +11,7 @@ import NotFound from "./components/NotFound";
 import Projects from "./components/projects/Projects";
 import StakingRewardsBlog from "./pages/blogs/StakeReward";
 import FallbackBlog from "./pages/blogs/FallBack_Blog";
+import Fal1out from "./pages/blogs/Fal1out";
 const App = () => {
   return (
     <ThemeProvider>
@@ -34,6 +35,7 @@ const App = () => {
                 element={<StakingRewardsBlog />}
               />
               <Route path="/blogs/fallback-eth" element={<FallbackBlog />} />
+              <Route path="/blogs/fal1out-eth" element={<Fal1out />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
