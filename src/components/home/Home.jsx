@@ -90,7 +90,7 @@ const terminalCommands = {
     output: [
       "Programming Languages: C, Java, Python, JavaScript, TypeScript, SQL",
       "Frontend: React, Next.js, Angular, TailwindCSS, Bootstrap, Material-UI",
-      "Mobile: React Native, Ionic, Flutter",
+      "Mobile: React Native, Ionic",
       "Backend: Node.js, Express.js, PHP, GraphQL, Flask",
       "Databases: MySQL, PostgreSQL, MongoDB",
       "Web3: Solidity, Foundry, Hardhat, DAO, DeFi, zkSync, NFT, ERC20",
@@ -305,9 +305,7 @@ const Home = () => {
     { name: "TailwindCSS", progress: 94, icon: FaCss3 },
     { name: "Git", progress: 91, icon: FaGitAlt },
     { name: "Angular", progress: 84, icon: FaCode },
-    { name: "Flutter", progress: 80, icon: FaMobile },
     { name: "GraphQL", progress: 83, icon: FaNetworkWired },
-    { name: "AWS", progress: 81, icon: FaAws },
   ];
 
   // Tech stack categories
