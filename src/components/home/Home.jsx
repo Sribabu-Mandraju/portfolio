@@ -305,7 +305,6 @@ const Home = () => {
     { name: "TailwindCSS", progress: 94, icon: FaCss3 },
     { name: "Git", progress: 91, icon: FaGitAlt },
     { name: "Angular", progress: 84, icon: FaCode },
-    { name: "GraphQL", progress: 83, icon: FaNetworkWired },
   ];
 
   // Tech stack categories
