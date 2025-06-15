@@ -330,7 +330,6 @@ const Home = () => {
     mobile: [
       { name: "React Native", icon: FaMobile },
       { name: "Ionic", icon: FaMobile },
-      { name: "Flutter", icon: FaMobile },
     ],
     database: [
       { name: "MongoDB", icon: FaDatabase },
