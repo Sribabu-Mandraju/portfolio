@@ -29,8 +29,9 @@ import {
   FaWallet,
   FaChartLine,
   FaHammer,
+  FaMobile,
 } from "react-icons/fa6";
-import myProfile from "../../assets/my_profile.png"
+import myProfile from "../../assets/my_profile.png";
 
 // Typing effect component for terminal-style typing
 const TypingEffect = ({ text, speed = 30 }) => {
@@ -70,35 +71,63 @@ const terminalCommands = {
   help: {
     output: [
       "Available commands:",
-      "whoami   - About the hacker",
+      "whoami   - About the developer",
       "skills   - List of skills",
       "contact  - How to reach out",
       "clear    - Clear the terminal",
       "social   - Social links",
+      "exp      - Work experience",
     ],
   },
   whoami: {
     output: [
-      "I'm Hacker Dev, a security researcher, blockchain developer, and CTF enthusiast. I break, build, and secure systems!",
+      "I'm Sribabu Mandraju, a Full Stack Developer with expertise in Web3, Blockchain, and Cross-platform Development.",
+      "Currently pursuing B.Tech in CSE at RGUKT Nuzvid with a CGPA of 8.4/10.",
+      "Passionate about building innovative solutions using cutting-edge technologies.",
     ],
   },
   skills: {
     output: [
-      "Solidity, Bug Bounty, Pentesting, Bash Scripting, Web3, React, ...",
+      "Programming Languages: C, Java, Python, JavaScript, TypeScript, SQL",
+      "Frontend: React, Next.js, Angular, TailwindCSS, Bootstrap, Material-UI",
+      "Mobile: React Native, Ionic, Flutter",
+      "Backend: Node.js, Express.js, PHP, GraphQL, Flask",
+      "Databases: MySQL, PostgreSQL, MongoDB",
+      "Web3: Solidity, Foundry, Hardhat, DAO, DeFi, zkSync, NFT, ERC20",
+      "Tools: Git, GitHub, Figma, AWS",
     ],
   },
   contact: {
     output: [
       "Email: sribabumandraju@gmail.com",
-      "Twitter: @5R1B4BU",
-      "LinkedIn: /in/sribabu-mandraju-590524233/",
+      "Phone: +91 63037 38847",
+      "Portfolio: portfolio-35c3.vercel.app",
     ],
   },
   social: {
     output: [
       "GitHub: github.com/Sribabu-Mandraju",
-      "Twitter: twitter.com/5R1B4bU",
-      "LinkedIn: linkedin.com/in/sribabu-mandraju-590524233",
+      "LinkedIn: linkedin.com/in/sribabu-mandraju",
+      "Twitter: twitter.com/5R1B4BU",
+    ],
+  },
+  exp: {
+    output: [
+      "Mee Buddy (Dec 2024 - Present)",
+      "Full Stack Developer & UI/UX Designer",
+      "- MEAN Stack, Ionic, MongoDB, Express.js, Node.js, Angular",
+      "",
+      "Techbuggy (Dec 2023 - Nov 2024)",
+      "Full Stack Developer [Go Backend & React Frontend]",
+      "- Go, React.js, RESTful APIs, Authentication",
+      "",
+      "Teckzite (Mar 2021 - Present)",
+      "Web Manager & Team Lead",
+      "- MERN Stack, AWS, Team Leadership",
+      "",
+      "Ecrush (Jun 2021 - Sep 2023)",
+      "Web Team Coordinator",
+      "- Web Development, Team Leadership, Project Management",
     ],
   },
   clear: {
@@ -243,7 +272,12 @@ const Home = () => {
   // Updated stats for full-stack developer
   const stats = [
     { icon: FaCode, label: "Projects", value: "42", change: "+5 this month" },
-    { icon: FaBug, label: "Github Contributions", value: "28", change: "+3 this week" },
+    {
+      icon: FaBug,
+      label: "Github Contributions",
+      value: "28",
+      change: "+3 this week",
+    },
     {
       icon: FaEthereum,
       label: "Smart Contracts",
@@ -260,48 +294,70 @@ const Home = () => {
 
   // Updated skills for full-stack development
   const skills = [
-    { name: "Solidity", progress: 65, icon: FaEthereum },
-    { name: "JavaScript", progress: 75, icon: FaJs },
-    { name: "TypeScript", progress: 60, icon: FaJs },
-    { name: "React", progress: 96, icon: FaReact },
-    { name: "Node.js", progress: 94, icon: FaNodeJs },
+    { name: "React", progress: 95, icon: FaReact },
+    { name: "Node.js", progress: 92, icon: FaNodeJs },
+    { name: "TypeScript", progress: 88, icon: FaJs },
+    { name: "Solidity", progress: 85, icon: FaEthereum },
+    { name: "Python", progress: 82, icon: FaPython },
+    { name: "MongoDB", progress: 90, icon: FaDatabase },
     { name: "Express.js", progress: 93, icon: FaServer },
-    { name: "Web3.js", progress: 80, icon: FaWallet },
-    { name: "Ethers.js", progress: 91, icon: FaChartLine },
-    { name: "MongoDB", progress: 79, icon: FaDatabase },
-    { name: "MySQL", progress: 88, icon: FaDatabase },
-    { name: "TailwindCSS", progress: 95, icon: FaCss3 },
-    { name: "Linux", progress: 77, icon: FaLinux },
-    { name: "Go", progress: 65, icon: FaCode },
-    { name: "Python", progress: 66, icon: FaPython },
+    { name: "Web3.js", progress: 87, icon: FaWallet },
+    { name: "TailwindCSS", progress: 94, icon: FaCss3 },
+    { name: "Git", progress: 91, icon: FaGitAlt },
+    { name: "Angular", progress: 84, icon: FaCode },
+    { name: "Flutter", progress: 80, icon: FaMobile },
+    { name: "GraphQL", progress: 83, icon: FaNetworkWired },
+    { name: "AWS", progress: 81, icon: FaAws },
   ];
 
   // Tech stack categories
   const techStack = {
-    blockchain: [
-      { name: "Solidity", icon: FaEthereum },
-      { name: "Hardhat", icon: FaHammer },
-      { name: "Web3.js", icon: FaWallet },
-      { name: "Ethers.js", icon: FaChartLine },
-    ],
     frontend: [
       { name: "React", icon: FaReact },
       { name: "Next.js", icon: FaCode },
-      { name: "TypeScript", icon: FaJs },
+      { name: "Angular", icon: FaCode },
       { name: "TailwindCSS", icon: FaCss3 },
     ],
     backend: [
       { name: "Node.js", icon: FaNodeJs },
+      { name: "Express.js", icon: FaServer },
       { name: "Python", icon: FaPython },
-      { name: "PostgreSQL", icon: FaDatabase },
+      { name: "GraphQL", icon: FaNetworkWired },
+    ],
+    blockchain: [
+      { name: "Solidity", icon: FaEthereum },
+      { name: "Hardhat", icon: FaHammer },
+      { name: "Web3.js", icon: FaWallet },
+      { name: "DeFi", icon: FaChartLine },
+    ],
+    mobile: [
+      { name: "React Native", icon: FaMobile },
+      { name: "Ionic", icon: FaMobile },
+      { name: "Flutter", icon: FaMobile },
+    ],
+    database: [
       { name: "MongoDB", icon: FaDatabase },
+      { name: "MySQL", icon: FaDatabase },
+    ],
+    tools: [
+      { name: "Git", icon: FaGitAlt },
+      { name: "Figma", icon: FaPen },
+      { name: "Linux", icon: FaLinux },
     ],
   };
 
   const socialLinks = [
-    { icon: FaGithub, href: "https://github.com/Sribabu-Mandraju", label: "GitHub" },
+    {
+      icon: FaGithub,
+      href: "https://github.com/Sribabu-Mandraju",
+      label: "GitHub",
+    },
     { icon: FaTwitter, href: "https://x.com/5R1B4BU", label: "Twitter" },
-    { icon: FaLinkedin, href: "https://www.linkedin.com/in/sribabu-mandraju-590524233/", label: "LinkedIn" },
+    {
+      icon: FaLinkedin,
+      href: "https://www.linkedin.com/in/sribabu-mandraju-590524233/",
+      label: "LinkedIn",
+    },
   ];
 
   return (
@@ -342,7 +398,8 @@ const Home = () => {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div>
                   <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-green-400 font-mono tracking-tight">
-                    SRI BABU <span className="text-zinc-400">aka</span> <span>5RIB4BU</span>
+                    SRI BABU <span className="text-zinc-400">aka</span>{" "}
+                    <span>5RIB4BU</span>
                   </h1>
                   <p className="text-green-500/70 mt-2 text-sm sm:text-base md:text-lg font-mono">
                     Full Stack Developer
@@ -477,41 +534,56 @@ const Home = () => {
         {/* Recent Projects */}
         <div className="mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-green-400 font-mono mb-6">
-            Recent Projects
+            Featured Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
                 title: "Karanyasetu",
-                tech: ["Solidity", "React", "Hardhat"],
+                tech: ["Solidity", "React", "Hardhat", "DeFi", "DAO"],
                 description:
-                  "Decentralized Disaster Relief fund System",
+                  "Decentralized disaster relief platform ensuring instant aid delivery, privacy-preserving victim verification, and transparent fund management with multilingual AI chatbots.",
+                link: "https://github.com/Sribabu-Mandraju/karunyasetu",
               },
               {
                 title: "Futurax",
-                tech: ["React", "Web3.js", "IPFS","Solidity"],
+                tech: ["React", "Web3.js", "Solidity", "wagmi", "OpenAI"],
                 description:
-                  "Decentralized predecting market ",
+                  "Blockchain-powered prediction market for real-world events with automated smart contracts for staking, fund locking, and payouts.",
+                link: "https://github.com/Sribabu-Mandraju/futurax_defi",
               },
               {
-                title: "Happy Farm",
-                tech: ["React", "Express.js", "tailwindcss"],
-                description: "An Ecommnerce platform for selling pesticides",
+                title: "Livebreak App and website",
+                tech: ["MERN Stack", "Express.js", "MongoDB", "React"],
+                description:
+                  "Transport services platform connecting transporters, companies, and staff with competitive bidding system.",
+                link: "https://github.com/Sribabu-Mandraju/liveBreak_new",
               },
               {
-                title: "Teckzite2k25",
-                tech: ["React", "Express.js", "Tailwindcss", "Figma","Typescript"],
+                title: "Teckzite2k24",
+                tech: ["MERN Stack", "Figma", "Razorpay", "Google Auth"],
                 description:
-                  "College National level techfest",
+                  "National Level Techno-management fest website with secure authentication and payment integration.",
+                link: "https://teckzite.org",
               },
             ].map((project, idx) => (
               <div
                 key={idx}
-                className="bg-black/80 backdrop-blur-sm rounded-xl p-6 border border-green-500/20 hover:border-green-500/40 transition-all duration-300"
+                className="bg-black/80 backdrop-blur-sm rounded-xl p-6 border border-green-500/20 hover:border-green-500/40 transition-all duration-300 group"
               >
-                <h3 className="text-lg font-bold text-green-400 font-mono mb-2">
-                  {project.title}
-                </h3>
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-lg font-bold text-green-400 font-mono">
+                    {project.title}
+                  </h3>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green-400 hover:text-green-300 transition-colors"
+                  >
+                    <FaGithub className="w-5 h-5" />
+                  </a>
+                </div>
                 <p className="text-green-500/70 font-mono text-sm mb-4">
                   {project.description}
                 </p>
@@ -519,7 +591,7 @@ const Home = () => {
                   {project.tech.map((tech, techIdx) => (
                     <span
                       key={techIdx}
-                      className="px-3 py-1 text-xs font-mono rounded-full bg-green-900/30 text-green-400 border border-green-500/30"
+                      className="px-3 py-1 text-xs font-mono rounded-full bg-green-900/30 text-green-400 border border-green-500/30 group-hover:border-green-500/50 transition-all duration-300"
                     >
                       {tech}
                     </span>
